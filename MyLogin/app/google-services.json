@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "809322910491",
+    "project_id": "mylogin-ecd7a",
+    "storage_bucket": "mylogin-ecd7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809322910491:android:141ef56aeac4c8563a79be",
+        "android_client_info": {
+          "package_name": "com.example.mylogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA92MChfsZ1v21KU5ELvZGMPtsIIWtxOZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
