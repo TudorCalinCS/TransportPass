@@ -6,11 +6,11 @@ import java.util.Objects;
 public class Abonament extends Entity<Long>{
     private LocalDateTime dataIncepere;
     private LocalDateTime dataExpirare;
-    private Long pret;
+    private Double pret;
     private String tip;
     private Client codClient;
 
-    public Abonament(Long id,LocalDateTime dataIncepere, LocalDateTime dataExpirare, Long pret, String tip, Client codClient) {
+    public Abonament(Long id,LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Client codClient) {
         this.id = id;
         this.dataIncepere = dataIncepere;
         this.dataExpirare = dataExpirare;
@@ -44,11 +44,11 @@ public class Abonament extends Entity<Long>{
         this.dataExpirare = dataExpirare;
     }
 
-    public Long getPret() {
+    public Double getPret() {
         return pret;
     }
 
-    public void setPret(Long pret) {
+    public void setPret(Double pret) {
         this.pret = pret;
     }
 
