@@ -104,6 +104,12 @@ public class RepoControlorDB implements IRepoControlor{
     public void update(Controlor entity) {
 
     }
+
+    @Override
+    public void delete(Controlor entity) {
+
+    }
+
     public String encryptPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] hashedPassword = md.digest(password.getBytes());

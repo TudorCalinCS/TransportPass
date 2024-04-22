@@ -103,7 +103,7 @@ public class RepoUserDB implements IRepoUser{
         }
 
         Connection con = jdbcUtils.getConnection();
-        try (PreparedStatement statement = con.prepareStatement("SELECT * FROM User WHERE username = ? AND password = ?")) {
+        try (PreparedStatement statement = con.prepareStatement("SELECT * FROM User WHERE email = ? AND parola = ?")) {
             statement.setString(1, username);
             statement.setString(2, encryptPassword(password));
 
@@ -128,6 +128,12 @@ public class RepoUserDB implements IRepoUser{
     @Override
     public void update(User entity) {
     }
+
+    @Override
+    public void delete(User entity) {
+
+    }
+
     public String encryptPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] hashedPassword = md.digest(password.getBytes());
