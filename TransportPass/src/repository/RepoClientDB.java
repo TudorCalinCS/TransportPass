@@ -13,70 +13,72 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
-public class RepoClientDB implements IRepoClient{
+
+public class RepoClientDB implements IRepoClient {
     private JdbcUtils jdbcUtils;
+
     public RepoClientDB(Properties properties) {
         this.jdbcUtils = new JdbcUtils(properties);
     }
 
     @Override
     public Client findOne(Long aLong) {
-        if(aLong == null) {
+        if (aLong == null) {
             throw new IllegalArgumentException("Error! Id cannot be null!");
         }
 
         Connection con = jdbcUtils.getConnection();
-        try(PreparedStatement statement = con.prepareStatement("select * from Client " +
-                "where id = ?")) {
+        try (PreparedStatement statement = con.prepareStatement("select * from Client where userId = ?")) {
 
             statement.setInt(1, Math.toIntExact(aLong));
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                String nume = resultSet.getString("nume");
-                String prenume = resultSet.getString("prenume");
-                String email = resultSet.getString("email");
-                String parola = resultSet.getString("parola");
-                String CNP = resultSet.getString("CNP");
+
                 String statut = resultSet.getString("statut");
 
-                Client client = new Client(aLong, nume, prenume, email, parola, CNP, statut);
-                return client;
+                RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
+                User user = repoUserDB.findOne(aLong);
+
+                if (user != null) {
+                    Client client = new Client(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), statut);
+                    return client;
+                } else {
+                    return null;
+                }
             }
 
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
         return null;
     }
 
+
     @Override
     public List<Client> findAll() {
         List<Client> clients = new ArrayList<>();
         Connection con = jdbcUtils.getConnection();
 
-        try (PreparedStatement statement = con.prepareStatement("select * from Client")){
+        try (PreparedStatement statement = con.prepareStatement("select * from Client")) {
 
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next())
-            {
-                Long id = resultSet.getLong("id");
-                String nume = resultSet.getString("nume");
-                String prenume = resultSet.getString("prenume");
-                String email = resultSet.getString("email");
-                String parola = resultSet.getString("parola");
-                String CNP = resultSet.getString("CNP");
+            while (resultSet.next()) {
+                Long userID = resultSet.getLong("userId");
                 String statut = resultSet.getString("statut");
 
-                Client client = new Client(id,nume,prenume,email,parola,CNP,statut);
+                RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
+                User user = repoUserDB.findOne(userID);
+
+
+                Client client = new Client(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), statut);
                 clients.add(client);
 
             }
             return clients;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -85,18 +87,20 @@ public class RepoClientDB implements IRepoClient{
     public void save(Client entity) {
         Connection con = jdbcUtils.getConnection();
 
-        try(PreparedStatement prepStatement = con.prepareStatement("insert into Client(nume,prenume,email,parola,CNP,statut) " +
-                "values (?,?,?,?,?,?)")){
-            prepStatement.setString(1,entity.getNume());
-            prepStatement.setString(2,entity.getPrenume());
-            prepStatement.setString(3,entity.getEmail());
-            prepStatement.setString(4, encryptPassword(entity.getParola()));
-            prepStatement.setString(5,entity.getCNP());
-            prepStatement.setString(6,entity.getStatut());
+        try (PreparedStatement prepStatement = con.prepareStatement("insert into Client(statut,userId) values (?,?)")) {
+
+            RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
+
+            Random random = new Random();
+            long randomLong = random.nextLong();
+
+            repoUserDB.save(new User(randomLong, entity.getNume(), entity.getPrenume(), entity.getEmail(), entity.getParola(), entity.getCNP()));
+
+            prepStatement.setString(1, entity.getStatut());
+            prepStatement.setLong(2, randomLong);
 
             int affectedRows = prepStatement.executeUpdate();
-        }
-        catch(SQLException | NoSuchAlgorithmException e){
+        } catch (SQLException e) {
             System.out.println("Error from DataBase: " + e);
         }
 

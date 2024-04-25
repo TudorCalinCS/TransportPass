@@ -2,14 +2,14 @@ package domain;
 
 import java.util.Objects;
 
-public class User extends Entity<Long>{
+public class User extends Entity<Long> {
     private String nume;
     private String prenume;
     private String email;
     private String parola;
     private String CNP;
 
-    public User(Long id,String nume, String prenume, String email, String parola, String CNP) {
+    public User(Long id, String nume, String prenume, String email, String parola, String CNP) {
         this.id = id;
         this.nume = nume;
         this.prenume = prenume;
@@ -27,6 +27,7 @@ public class User extends Entity<Long>{
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getNume() {
         return nume;
     }
@@ -77,7 +78,7 @@ public class User extends Entity<Long>{
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,nume, prenume, email, parola, CNP);
+        return Objects.hash(id, nume, prenume, email, parola, CNP);
     }
 
     @Override

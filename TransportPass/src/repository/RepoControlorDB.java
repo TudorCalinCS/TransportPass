@@ -2,6 +2,7 @@ package repository;
 
 import domain.Client;
 import domain.Controlor;
+import domain.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -9,41 +10,42 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
-public class RepoControlorDB implements IRepoControlor{
+public class RepoControlorDB implements IRepoControlor {
     private JdbcUtils jdbcUtils;
+
     public RepoControlorDB(Properties properties) {
         this.jdbcUtils = new JdbcUtils(properties);
     }
+
     @Override
     public Controlor findOne(Long aLong) {
-        if(aLong == null) {
+        if (aLong == null) {
             throw new IllegalArgumentException("Error! Id cannot be null!");
         }
 
         Connection con = jdbcUtils.getConnection();
-        try(PreparedStatement statement = con.prepareStatement("select * from Controlor " +
-                "where id = ?")){
+        try (PreparedStatement statement = con.prepareStatement("select * from Controlor " +
+                "where userId = ?")) {
 
             statement.setInt(1, Math.toIntExact(aLong));
             ResultSet resultSet = statement.executeQuery();
-            if(resultSet.next()){
-                String nume = resultSet.getString("nume");
-                String prenume = resultSet.getString("prenume");
-                String email = resultSet.getString("email");
-                String parola = resultSet.getString("parola");
-                String CNP = resultSet.getString("CNP");
+            if (resultSet.next()) {
+
                 String numarLegitimatie = resultSet.getString("legitimatie");
 
-                Controlor controlor = new Controlor(aLong,nume,prenume,email,parola,CNP,numarLegitimatie);
-                return controlor;
+                RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
+                User user = repoUserDB.findOne(aLong);
+
+                if (user != null) {
+                    Controlor controlor = new Controlor(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), numarLegitimatie);
+                    return controlor;
+                } else {
+                    return null;
+                }
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -55,26 +57,26 @@ public class RepoControlorDB implements IRepoControlor{
         List<Controlor> controlors = new ArrayList<>();
         Connection con = jdbcUtils.getConnection();
 
-        try (PreparedStatement statement = con.prepareStatement("select * from Controlor")){
+        try (PreparedStatement statement = con.prepareStatement("select * from Controlor")) {
 
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next())
-            {
-                Long id = resultSet.getLong("id");
-                String nume = resultSet.getString("nume");
-                String prenume = resultSet.getString("prenume");
-                String email = resultSet.getString("email");
-                String parola = resultSet.getString("parola");
-                String CNP = resultSet.getString("CNP");
-                String nrLegitimatie = resultSet.getString("legitimatie");
+            while (resultSet.next()) {
+                String numarLegitimatie = resultSet.getString("legitimatie");
 
-                Controlor controlor = new Controlor(id,nume,prenume,email,parola,CNP,nrLegitimatie);
-                controlors.add(controlor);
+                RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
+                Long userID = resultSet.getLong("userId");
+
+                User user = repoUserDB.findOne(userID);
+
+                if (user != null) {
+                    Controlor controlor = new Controlor(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), numarLegitimatie);
+                    controlors.add(controlor);
+
+                }
 
             }
             return controlors;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -83,18 +85,21 @@ public class RepoControlorDB implements IRepoControlor{
     public void save(Controlor entity) {
         Connection con = jdbcUtils.getConnection();
 
-        try(PreparedStatement prepStatement = con.prepareStatement("insert into Controlor(nume,prenume,email,parola,CNP,legitimatie) " +
-                "values (?,?,?,?,?,?)")){
-            prepStatement.setString(1,entity.getNume());
-            prepStatement.setString(2,entity.getPrenume());
-            prepStatement.setString(3,entity.getEmail());
-            prepStatement.setString(4, encryptPassword(entity.getParola()));
-            prepStatement.setString(5,entity.getCNP());
-            prepStatement.setString(6,entity.getNumarLegitimatie());
+        try (PreparedStatement prepStatement = con.prepareStatement("insert into Controlor(legitimatie,userId) " +
+                "values (?,?)")) {
+
+            RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
+
+            Random random = new Random();
+            long randomLong = random.nextLong();
+
+            repoUserDB.save(new User(randomLong, entity.getNume(), entity.getPrenume(), entity.getEmail(), entity.getParola(), entity.getCNP()));
+
+            prepStatement.setString(1, entity.getNumarLegitimatie());
+            prepStatement.setLong(2, randomLong);
 
             int affectedRows = prepStatement.executeUpdate();
-        }
-        catch(SQLException | NoSuchAlgorithmException e){
+        } catch (SQLException e) {
             System.out.println("Error from DataBase: " + e);
         }
 

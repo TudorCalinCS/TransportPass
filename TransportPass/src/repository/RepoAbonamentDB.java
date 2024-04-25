@@ -114,6 +114,21 @@ public class RepoAbonamentDB implements IRepoAbonament {
 
     @Override
     public void delete(Abonament entity) {
-
+        Connection con = jdbcUtils.getConnection();
+        LocalDateTime today = LocalDateTime.now();
+        try (PreparedStatement preStmt = con.prepareStatement("DELETE FROM Abonament WHERE dataExpirare < ?")) {
+            preStmt.setObject(1, today);
+            int rowsAffected = preStmt.executeUpdate();
+            System.out.println(rowsAffected + " abonament expirat au fost șterse.");
+        } catch (SQLException ex) {
+            System.err.println("Eroare în baza de date: " + ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println("Eroare la închiderea conexiunii: " + e.getMessage());
+            }
+        }
     }
 }
+

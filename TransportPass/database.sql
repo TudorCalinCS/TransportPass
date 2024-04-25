@@ -1,5 +1,5 @@
 CREATE TABLE User(
-                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     id INTEGER PRIMARY KEY,
                      email VARCHAR(50),
                      parola VARCHAR(50),
                      nume VARCHAR(50),
@@ -7,13 +7,11 @@ CREATE TABLE User(
                      CNP VARCHAR(20)
 );
 CREATE TABLE Client(
-                       id INTEGER PRIMARY KEY AUTOINCREMENT,
                        statut VARCHAR(20),
                        userId INTEGER,
                        FOREIGN KEY (userId) REFERENCES User(id)
 );
 CREATE TABLE Controlor(
-                          id INTEGER PRIMARY KEY AUTOINCREMENT,
                           legitimatie VARCHAR(50),
                           userId INTEGER,
                           FOREIGN KEY (userId) REFERENCES User(id)
@@ -24,7 +22,7 @@ CREATE TABLE Bilet(
                       dataExpirare DATETIME,
                       pret DOUBLE,
                       tip VARCHAR(20),
-                      idClient INT, FOREIGN KEY (idClient) REFERENCES Client(id)
+                      idClient INT, FOREIGN KEY (idClient) REFERENCES Client(userId)
 );
 CREATE TABLE Abonament(
                           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,5 +31,5 @@ CREATE TABLE Abonament(
                           pret DOUBLE,
                           tip VARCHAR(20),
                           idClient INT,
-                          FOREIGN KEY (idClient) REFERENCES Client(id)
+                          FOREIGN KEY (idClient) REFERENCES Client(userId)
 );
