@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/TransportPass.iml" filepath="$PROJECT_DIR$/.idea/TransportPass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TransportPass.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TransportPass.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TransportPass.test.iml" filepath="$PROJECT_DIR$/.idea/modules/TransportPass.test.iml" />
     </modules>
   </component>
 </project>
