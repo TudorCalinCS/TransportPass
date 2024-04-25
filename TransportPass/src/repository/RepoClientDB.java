@@ -19,6 +19,7 @@ public class RepoClientDB implements IRepoClient{
     public RepoClientDB(Properties properties) {
         this.jdbcUtils = new JdbcUtils(properties);
     }
+
     @Override
     public Client findOne(Long aLong) {
         if(aLong == null) {
@@ -27,11 +28,11 @@ public class RepoClientDB implements IRepoClient{
 
         Connection con = jdbcUtils.getConnection();
         try(PreparedStatement statement = con.prepareStatement("select * from Client " +
-                "where id = ?")){
+                "where id = ?")) {
 
             statement.setInt(1, Math.toIntExact(aLong));
             ResultSet resultSet = statement.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 String nume = resultSet.getString("nume");
                 String prenume = resultSet.getString("prenume");
                 String email = resultSet.getString("email");
@@ -39,9 +40,10 @@ public class RepoClientDB implements IRepoClient{
                 String CNP = resultSet.getString("CNP");
                 String statut = resultSet.getString("statut");
 
-                Client client = new Client(aLong,nume,prenume,email,parola,CNP,statut);
+                Client client = new Client(aLong, nume, prenume, email, parola, CNP, statut);
                 return client;
             }
+
         }
         catch (SQLException e){
             throw new RuntimeException(e);
