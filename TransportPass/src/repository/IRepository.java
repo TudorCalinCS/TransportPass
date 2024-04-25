@@ -9,4 +9,5 @@ public interface IRepository<ID, E extends Entity<ID>> {
     List<E> findAll();
     void save(E entity);
     void update(E entity);
+    void delete(E entity);
 }

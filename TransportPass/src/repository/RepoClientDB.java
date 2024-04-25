@@ -106,6 +106,12 @@ public class RepoClientDB implements IRepoClient{
     public void update(Client entity) {
 
     }
+
+    @Override
+    public void delete(Client entity) {
+
+    }
+
     public String encryptPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] hashedPassword = md.digest(password.getBytes());
