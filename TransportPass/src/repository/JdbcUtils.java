@@ -36,4 +36,8 @@ public class JdbcUtils {
         }
         return instance;
     }
+
+    public Properties getJdbcProps() {
+        return jdbcProps;
+    }
 }

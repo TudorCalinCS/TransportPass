@@ -1,6 +1,7 @@
 package repository;
 
 import domain.User;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -12,37 +13,38 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
 
-public class RepoUserDB implements IRepoUser{
+public class RepoUserDB implements IRepoUser {
 
     private JdbcUtils jdbcUtils;
+
     public RepoUserDB(Properties properties) {
         this.jdbcUtils = new JdbcUtils(properties);
     }
+
     @Override
     public User findOne(Long aLong) {
 
-        if(aLong == null) {
+        if (aLong == null) {
             throw new IllegalArgumentException("Error! Id cannot be null!");
         }
 
         Connection con = jdbcUtils.getConnection();
-        try(PreparedStatement statement = con.prepareStatement("select * from User " +
-                "where id = ?")){
+        try (PreparedStatement statement = con.prepareStatement("select * from User " +
+                "where id = ?")) {
 
             statement.setInt(1, Math.toIntExact(aLong));
             ResultSet resultSet = statement.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 String nume = resultSet.getString("nume");
                 String prenume = resultSet.getString("prenume");
                 String email = resultSet.getString("email");
                 String parola = resultSet.getString("parola");
                 String CNP = resultSet.getString("CNP");
 
-                User user = new User(aLong,nume,prenume,email,parola,CNP);
+                User user = new User(aLong, nume, prenume, email, parola, CNP);
                 return user;
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -51,51 +53,55 @@ public class RepoUserDB implements IRepoUser{
 
     @Override
     public List<User> findAll() {
-        List<User> users = new ArrayList<>();
-        Connection con = jdbcUtils.getConnection();
+        /**
+         List<User> users = new ArrayList<>();
+         Connection con = jdbcUtils.getConnection();
 
-        try (PreparedStatement statement = con.prepareStatement("select * from User")){
+         try (PreparedStatement statement = con.prepareStatement("select * from User")){
 
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next())
-            {
-                Long id = resultSet.getLong("id");
-                String nume = resultSet.getString("nume");
-                String prenume = resultSet.getString("prenume");
-                String email = resultSet.getString("email");
-                String parola = resultSet.getString("parola");
-                String CNP = resultSet.getString("CNP");
+         ResultSet resultSet = statement.executeQuery();
+         while (resultSet.next())
+         {
+         Long id = resultSet.getLong("id");
+         String nume = resultSet.getString("nume");
+         String prenume = resultSet.getString("prenume");
+         String email = resultSet.getString("email");
+         String parola = resultSet.getString("parola");
+         String CNP = resultSet.getString("CNP");
 
-                User user = new User(id,nume,prenume,email,parola,CNP);
-                users.add(user);
+         User user = new User(id,nume,prenume,email,parola,CNP);
+         users.add(user);
 
-            }
-            return users;
-        }
-        catch (SQLException e){
-            throw new RuntimeException(e);
-        }
+         }
+         return users;
+         }
+         catch (SQLException e){
+         throw new RuntimeException(e);
+         }*/
+        return null;
     }
 
     @Override
     public void save(User entity) {
+
         Connection con = jdbcUtils.getConnection();
 
-        try(PreparedStatement prepStatement = con.prepareStatement("insert into User(nume,prenume,email,parola,CNP) " +
-                "values (?,?,?,?,?)")){
-            prepStatement.setString(1,entity.getNume());
-            prepStatement.setString(2,entity.getPrenume());
-            prepStatement.setString(3,entity.getEmail());
-            prepStatement.setString(4, encryptPassword(entity.getParola()));
-            prepStatement.setString(5,entity.getCNP());
+        try (PreparedStatement prepStatement = con.prepareStatement("insert into User(id,nume,prenume,email,parola,CNP) " +
+                "values (?,?,?,?,?,?)")) {
+            prepStatement.setInt(1, entity.getId().intValue());
+            prepStatement.setString(2, entity.getNume());
+            prepStatement.setString(3, entity.getPrenume());
+            prepStatement.setString(4, entity.getEmail());
+            prepStatement.setString(5, encryptPassword(entity.getParola()));
+            prepStatement.setString(6, entity.getCNP());
 
             int affectedRows = prepStatement.executeUpdate();
-        }
-        catch(SQLException | NoSuchAlgorithmException e){
+        } catch (SQLException | NoSuchAlgorithmException e) {
             System.out.println("Error from DataBase: " + e);
         }
 
     }
+
     public User findOneByUsernameAndPassword(String username, String password) {
 
         if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
@@ -124,9 +130,21 @@ public class RepoUserDB implements IRepoUser{
         return null;
     }
 
-
     @Override
     public void update(User entity) {
+        Connection con = jdbcUtils.getConnection();
+        try (PreparedStatement prepStatement = con.prepareStatement("update User set parola=? where email=?")) {
+            prepStatement.setString(1, entity.getNume());
+            prepStatement.setString(2, entity.getPrenume());
+            prepStatement.setString(3, entity.getEmail());
+            prepStatement.setString(4, encryptPassword(entity.getParola()));
+            prepStatement.setString(5, entity.getCNP());
+            int result = prepStatement.executeUpdate();
+        } catch (SQLException ex) {
+            System.err.println("Error DB" + ex);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
