@@ -33,3 +33,10 @@ CREATE TABLE Abonament(
                           idClient INT,
                           FOREIGN KEY (idClient) REFERENCES Client(userId)
 );
+
+CREATE TABLE imagini (
+                         id INTEGER PRIMARY KEY,
+                         nume TEXT,
+                         linie TEXT,
+                         continut_imagine BLOB
+);
