@@ -4,65 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d2d3b5-0fba-49cb-ba37-8f1a097299a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/core_3_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javase_3_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/qrgen_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TransportPass.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/domain/Abonament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Abonament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/domain/Bilet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Bilet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/domain/Controlor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Controlor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/domain/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/IRepoAbonament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoAbonament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/IRepoBilet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoBilet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/IRepoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/IRepoControlor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoControlor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/IRepoUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/JdbcUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/RepoAbonamentDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoAbonamentDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/RepoBiletDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoBiletDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/RepoClientDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoClientDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/RepoControlorDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoControlorDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/repository/RepoUserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoUserDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/server/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/server/StartServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportPass/src/service/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoImagineDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoImagineDB.java" afterDir="false" />
-    </list>
+    <list default="true" id="57d2d3b5-0fba-49cb-ba37-8f1a097299a6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +169,7 @@
       <workItem from="1714054051200" duration="440000" />
       <workItem from="1714054507018" duration="6000" />
       <workItem from="1714054701289" duration="345000" />
-      <workItem from="1714389405596" duration="6269000" />
+      <workItem from="1714389405596" duration="7011000" />
     </task>
     <servers />
   </component>
