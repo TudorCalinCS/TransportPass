@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="TransportPassDB" uuid="dfbb5750-c5ee-48dd-833b-eaff1fba7f94">
+    <data-source source="LOCAL" name="TransportPassDB" uuid="9a75cbe0-a272-4e51-b2d9-b51017d89d0d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Tudor\source\repos\TransportPass\TransportPassDB</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\ALEXANDRA\IdeaProjects\MAP\TransportPass\TransportPassDB</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
