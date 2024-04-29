@@ -1,15 +1,21 @@
 plugins {
     id 'java'
-
+    id 'application'
 }
 
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
-
+application {
+    mainClassName = 'utils.QRCodeGenerator'
+}
 dependencies {
-    implementation 'com.google.zxing:zxing-parent:3.5.3'
+    implementation 'com.google.zxing:core:3.4.1'
+    implementation 'com.google.zxing:javase:3.4.1'
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation 'org.json:json:20231013'
 
 }
