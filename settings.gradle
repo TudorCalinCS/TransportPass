@@ -1,1 +1,3 @@
 rootProject.name = "TransportPass"
+include 'Server'
+
