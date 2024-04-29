@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repos.TransportPass.iml" filepath="$PROJECT_DIR$/.idea/modules/repos.TransportPass.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repos.TransportPass.main.iml" filepath="$PROJECT_DIR$/.idea/modules/repos.TransportPass.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repos.TransportPass.test.iml" filepath="$PROJECT_DIR$/.idea/modules/repos.TransportPass.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TransportPass.iml" filepath="$PROJECT_DIR$/.idea/modules/TransportPass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server/TransportPass.Server.iml" filepath="$PROJECT_DIR$/.idea/modules/Server/TransportPass.Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TransportPass.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TransportPass.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TransportPass.test.iml" filepath="$PROJECT_DIR$/.idea/modules/TransportPass.test.iml" />
     </modules>
   </component>
 </project>
