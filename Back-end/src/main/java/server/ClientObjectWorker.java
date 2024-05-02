@@ -1,21 +1,24 @@
 package server;
 
 
+import domain.User;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.time.LocalDateTime;
 
 
 public class ClientObjectWorker implements Runnable, IObserver {
     private IServices server;
     private Socket connection;
-
     private ObjectInputStream input;
     private ObjectOutputStream output;
     private volatile boolean connected;
+
+    private User currentUser;
 
     public ClientObjectWorker(IServices server, Socket connection) {
         this.server = server;
@@ -40,7 +43,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 sendResponse(response);
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (ClassNotFoundException | SrvException e) {
                 e.printStackTrace();
             }
             try {
@@ -59,7 +62,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
     }
 
 
-    private JSONObject handleRequest(JSONObject request) {
+    private JSONObject handleRequest(JSONObject request) throws SrvException {
         JSONObject response = new JSONObject();
         String type = request.getString("type");
         if (type.equals("CreateClient")) {
@@ -71,20 +74,41 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String parola = request.getString("parola");
             String CNP = request.getString("CNP");
             String statut = request.getString("statut");
-
-            server.createClient(nume, prenume, email, parola, CNP, statut);
-            response.put("type", "OkResponse");
+            try {
+                server.createClient(nume, prenume, email, parola, CNP, statut);
+                response.put("type", "OkResponse");
+            } catch (SrvException e) {
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
 
         }
         if (type.equals("LoginClient")) {
-            System.out.println("Login Client request ...");
+            System.out.println("Login Client request...");
             String email = request.getString("email");
             String parola = request.getString("parola");
             try {
-                server.login(email, parola, this);
+                this.currentUser = server.login(email, parola, this);
                 response.put("type", "OkResponse");
-            } catch (ChatException e) {
+
+            } catch (SrvException e) {
                 connected = false;
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
+        }
+        if (type.equals("BuyTicket")) {
+            System.out.println("Buy Ticket request...");
+            LocalDateTime dataIncepere = LocalDateTime.parse(request.getString("dataIncepere"));
+            LocalDateTime dataExpirare = LocalDateTime.parse(request.getString("dataExpirare"));
+            Double pret = request.getDouble("pret");
+            String tip = request.getString("tip");
+            Long idClient = Long.valueOf(request.getString("codClient"));
+            try {
+                server.buyTicket(dataIncepere, dataExpirare, pret, tip, idClient);
+                response.put("type", "OkResponse");
+
+            } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }

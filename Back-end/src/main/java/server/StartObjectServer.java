@@ -25,9 +25,9 @@ public class StartObjectServer {
         RepoBiletDB repoBiletDB = new RepoBiletDB(serverProps, repoClientDB);
         RepoAbonamentDB repoAbonamentDB = new RepoAbonamentDB(serverProps, repoClientDB);
         RepoControlorDB repoControlorDB = new RepoControlorDB(serverProps);
+        RepoImagineDB repoImagineDB=new RepoImagineDB(serverProps);
 
-
-        IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB);
+        IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB,repoImagineDB);
 
 
         int chatServerPort = defaultPort;

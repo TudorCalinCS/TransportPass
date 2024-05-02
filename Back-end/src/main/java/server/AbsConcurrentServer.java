@@ -17,6 +17,5 @@ public abstract class AbsConcurrentServer extends AbstractServer {
         Thread tw = this.createWorker(client);
         tw.start();
     }
-
     protected abstract Thread createWorker(Socket var1);
 }

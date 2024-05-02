@@ -1,0 +1,47 @@
+Request-Response
+
+# Create client
+
+Request
+type:CreateClient
+nume:String
+prenume:String
+email:String
+parola:String
+CNP:String
+statut:String
+
+Response
+type:OkResponse
+____
+type:ErrorResponse
+message:
+
+# Login client
+
+Request
+type:LoginClient
+email:String
+parola:String
+
+Response
+type:OkResponse
+____
+type:ErrorResponse
+message:
+
+# Buy Ticket
+
+Request
+type:BuyTicket
+dataIncepere:String - Format : yyyy-MM-dd HH:mm:ss
+dataExpirare:String - Format : yyyy-MM-dd HH:mm:ss
+pret:Double
+tip:String
+idClient:String
+
+Response
+type:OkResponse
+____
+type:ErrorResponse
+message:

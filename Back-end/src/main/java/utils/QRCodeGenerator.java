@@ -4,6 +4,7 @@ import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
+import server.SrvException;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 public class QRCodeGenerator {
 
-    public static void generateAndSaveQRCode(long number, String filePath) {
+    public static void generateAndSaveQRCode(long number, String filePath) throws SrvException {
         try {
             String text = String.valueOf(number);
             Map<EncodeHintType, Object> hints = new HashMap<>();
@@ -33,7 +34,38 @@ public class QRCodeGenerator {
             ImageIO.write(image, "PNG", new File(filePath));
             System.out.println("QR Code saved to: " + filePath);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new SrvException(e.getMessage());
+        }
+    }
+    public static byte[] generateQRCode(long number) throws SrvException{
+        try {
+            String text = String.valueOf(number);
+            Map<EncodeHintType, Object> hints = new HashMap<>();
+            hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+            BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, 200, 200, hints);
+
+            BufferedImage image = new BufferedImage(200, 200, BufferedImage.TYPE_INT_RGB);
+            for (int i = 0; i < 200; i++) {
+                for (int j = 0; j < 200; j++) {
+                    image.setRGB(i, j, bitMatrix.get(i, j) ? 0xFF000000 : 0xFFFFFFFF);
+                }
+            }
+
+            // Create a ByteArrayOutputStream to hold the image data
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+            // Write the image to the ByteArrayOutputStream
+            ImageIO.write(image, "PNG", outputStream);
+
+            // Get the byte array from the ByteArrayOutputStream
+            byte[] imageBytes = outputStream.toByteArray();
+
+            // Close the ByteArrayOutputStream
+            outputStream.close();
+
+            return imageBytes;
+        } catch (Exception e) {
+            throw new SrvException(e.getMessage());
         }
     }
 

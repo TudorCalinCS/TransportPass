@@ -2,6 +2,7 @@ package repository;
 
 import domain.Client;
 import domain.User;
+import server.SrvException;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -84,7 +85,7 @@ public class RepoClientDB implements IRepoClient {
     }
 
     @Override
-    public void save(Client entity) {
+    public void save(Client entity) throws SrvException {
         Connection con = jdbcUtils.getConnection();
 
         try (PreparedStatement prepStatement = con.prepareStatement("insert into Client(statut,userId) values (?,?)")) {
@@ -102,6 +103,7 @@ public class RepoClientDB implements IRepoClient {
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error from DataBase: " + e);
+            throw new SrvException(e.getMessage());
         }
 
     }

@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Objects;
 
+
 public class User extends Entity<Long> {
     private String nume;
     private String prenume;

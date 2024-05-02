@@ -1,12 +1,20 @@
 package server;
 
 
+import domain.Bilet;
 import domain.Client;
 import domain.User;
 import repository.*;
+import utils.QRCodeGenerator;
+
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.Random;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import static utils.QRCodeGenerator.generateQRCode;
 
 
 public class ServicesImpl implements IServices {
@@ -18,30 +26,57 @@ public class ServicesImpl implements IServices {
     private RepoBiletDB repoBiletDB;
     private Map<String, IObserver> loggedClients;
 
+    private RepoImagineDB repoImagineDB;
 
-    public ServicesImpl(RepoClientDB repoClientDB, RepoControlorDB repoControlorDB, RepoUserDB repoUserDB, RepoAbonamentDB repoAbonamentDB, RepoBiletDB repoBiletDB) {
+
+    public ServicesImpl(RepoClientDB repoClientDB, RepoControlorDB repoControlorDB, RepoUserDB repoUserDB, RepoAbonamentDB repoAbonamentDB, RepoBiletDB repoBiletDB, RepoImagineDB repoImagineDB) {
         this.repoClientDB = repoClientDB;
         this.repoControlorDB = repoControlorDB;
         this.repoUserDB = repoUserDB;
         this.repoAbonamentDB = repoAbonamentDB;
         this.repoBiletDB = repoBiletDB;
         this.loggedClients = new ConcurrentHashMap<>();
+        this.repoImagineDB = repoImagineDB;
     }
-    public synchronized void createClient(String nume, String prenume, String email, String parola, String CNP, String statut){
-        Client client=new Client(1L,nume,prenume,email,parola,CNP,statut);
-        repoClientDB.save(client);
+
+    public synchronized void createClient(String nume, String prenume, String email, String parola, String CNP, String statut) throws SrvException {
+        try {
+            Random random = new Random();
+            long randomID = random.nextLong();
+            Client client = new Client(randomID, nume, prenume, email, parola, CNP, statut);
+            repoClientDB.save(client);
+        } catch (SrvException e) {
+            throw new SrvException(e.getMessage());
+        }
     }
-    public synchronized void login(String email,String parola, IObserver client) throws ChatException {
-        User user=repoUserDB.findOneByUsernameAndPassword(email,parola);
-        if (user!=null){
+
+
+    public synchronized User login(String email, String parola, IObserver client) throws SrvException {
+        User user = repoUserDB.findOneByUsernameAndPassword(email, parola);
+        if (user != null) {
             loggedClients.put(user.getId().toString(), client);
+            return user;
             //notifyFriendsLoggedIn(user);
-        }else
-            throw new ChatException("Authentication failed.");
+        } else
+            throw new SrvException("Authentication failed.");
     }
 
+    public synchronized void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Long idClient) throws SrvException {
+        try {
+            Client client = repoClientDB.findOne(idClient);
+            Random random = new Random();
+            long randomID = random.nextLong();
+            Bilet bilet = new Bilet(randomID, dataIncepere, dataExpirare, pret, tip, client);
+            repoBiletDB.save(bilet);
+            //Generate QR
+            byte[] image = generateQRCode(randomID);
+            repoImagineDB.save(String.valueOf(randomID), "bilet", image);
+        } catch (SrvException e) {
+            throw new SrvException("Buying ticket failed.");
+        }
+    }
 
-    private final int defaultThreadsNo=5;
+    private final int defaultThreadsNo = 5;
     /*
     private void notifyFriendsLoggedIn(User user) throws ChatException {
         Iterable<User> friends=userRepository.getFriendsOf(user);
