@@ -2,6 +2,8 @@ package repository;
 
 import domain.User;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -16,15 +18,21 @@ import java.util.Properties;
 public class RepoUserDB implements IRepoUser {
 
     private JdbcUtils jdbcUtils;
+    private static final Logger logger = LogManager.getLogger(RepoUserDB.class);
 
     public RepoUserDB(Properties properties) {
+
+        logger.info("Initializing RepoUserDB  with properties: {} ", properties );
         this.jdbcUtils = new JdbcUtils(properties);
     }
 
     @Override
     public User findOne(Long aLong) {
 
+        logger.traceEntry("Find user with id: {} ", aLong);
+
         if (aLong == null) {
+            logger.error(new IllegalArgumentException("Id null"));
             throw new IllegalArgumentException("Error! Id cannot be null!");
         }
 
@@ -42,12 +50,14 @@ public class RepoUserDB implements IRepoUser {
                 String CNP = resultSet.getString("CNP");
 
                 User user = new User(aLong, nume, prenume, email, parola, CNP);
+                logger.traceExit(user);
                 return user;
             }
         } catch (SQLException e) {
+            logger.error(e);
             throw new RuntimeException(e);
         }
-
+        logger.traceExit("No user found with id: {}", aLong);
         return null;
     }
 
@@ -83,7 +93,7 @@ public class RepoUserDB implements IRepoUser {
 
     @Override
     public void save(User entity) {
-
+        logger.traceEntry("saving user: {}", entity);
         Connection con = jdbcUtils.getConnection();
 
         try (PreparedStatement prepStatement = con.prepareStatement("insert into User(id,nume,prenume,email,parola,CNP) " +
@@ -97,14 +107,18 @@ public class RepoUserDB implements IRepoUser {
 
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException | NoSuchAlgorithmException e) {
+            logger.error(e);
             System.out.println("Error from DataBase: " + e);
         }
-
+        logger.traceExit();
     }
 
     public User findOneByUsernameAndPassword(String username, String password) {
 
+        logger.traceEntry("Find user with username: {} and password: {}", username, password);
+
         if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+            logger.error("Username or password is null or empty");
             throw new IllegalArgumentException("Error! Username and password cannot be null or empty!");
         }
 
@@ -122,16 +136,20 @@ public class RepoUserDB implements IRepoUser {
                 String parola = resultSet.getString("parola");
                 String CNP = resultSet.getString("CNP");
                 User user = new User(id, nume, prenume, email, parola, CNP);
+                logger.traceExit(user);
                 return user;
             }
         } catch (SQLException | NoSuchAlgorithmException e) {
+            logger.error("Error executing SQL query", e);
             throw new RuntimeException("Error executing SQL query", e);
         }
+        logger.traceExit();
         return null;
     }
 
     @Override
     public void update(User entity) {
+        logger.traceEntry("updating user: {} ", entity);
         Connection con = jdbcUtils.getConnection();
         try (PreparedStatement prepStatement = con.prepareStatement("update User set parola=? where email=?")) {
             prepStatement.setString(1, entity.getNume());
@@ -140,8 +158,11 @@ public class RepoUserDB implements IRepoUser {
             prepStatement.setString(4, encryptPassword(entity.getParola()));
             prepStatement.setString(5, entity.getCNP());
             int result = prepStatement.executeUpdate();
+            if(result == 0) logger.traceExit("could not update user: {}", entity);
+            else logger.traceExit("updated user: {} ", entity);
         } catch (SQLException ex) {
             System.err.println("Error DB" + ex);
+            logger.error(ex);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
