@@ -3,6 +3,8 @@ package repository;
 import domain.Client;
 import domain.Controlor;
 import domain.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -14,14 +16,18 @@ import java.util.*;
 
 public class RepoControlorDB implements IRepoControlor {
     private JdbcUtils jdbcUtils;
+    private static final Logger logger = LogManager.getLogger(RepoControlorDB.class);
 
     public RepoControlorDB(Properties properties) {
         this.jdbcUtils = new JdbcUtils(properties);
+        logger.info("Initializing RepoControlorDB  with properties: {} ", properties );
     }
 
     @Override
     public Controlor findOne(Long aLong) {
+        logger.traceEntry("Find controlor with id: {} ", aLong);
         if (aLong == null) {
+            logger.error(new IllegalArgumentException("Id null"));
             throw new IllegalArgumentException("Error! Id cannot be null!");
         }
 
@@ -40,20 +46,24 @@ public class RepoControlorDB implements IRepoControlor {
 
                 if (user != null) {
                     Controlor controlor = new Controlor(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), numarLegitimatie);
+                    logger.traceExit(controlor);
                     return controlor;
                 } else {
+                    logger.traceExit();
                     return null;
                 }
             }
         } catch (SQLException e) {
+            logger.error(e);
             throw new RuntimeException(e);
         }
-
+        logger.traceExit("No controlor found with id: {}", aLong);
         return null;
     }
 
     @Override
     public List<Controlor> findAll() {
+        logger.traceEntry("Finding all controlori");
         List<Controlor> controlors = new ArrayList<>();
         Connection con = jdbcUtils.getConnection();
 
@@ -75,8 +85,10 @@ public class RepoControlorDB implements IRepoControlor {
                 }
 
             }
+            logger.traceExit(controlors);
             return controlors;
         } catch (SQLException e) {
+            logger.error(e);
             throw new RuntimeException(e);
         }
     }
@@ -84,6 +96,7 @@ public class RepoControlorDB implements IRepoControlor {
     @Override
     public void save(Controlor entity) {
         Connection con = jdbcUtils.getConnection();
+        logger.traceEntry("saving controlor: {}", entity);
 
         try (PreparedStatement prepStatement = con.prepareStatement("insert into Controlor(legitimatie,userId) " +
                 "values (?,?)")) {
@@ -100,8 +113,10 @@ public class RepoControlorDB implements IRepoControlor {
 
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {
+            logger.error(e);
             System.out.println("Error from DataBase: " + e);
         }
+        logger.traceExit();
 
     }
 
@@ -113,11 +128,5 @@ public class RepoControlorDB implements IRepoControlor {
     @Override
     public void delete(Controlor entity) {
 
-    }
-
-    public String encryptPassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hashedPassword = md.digest(password.getBytes());
-        return Base64.getEncoder().encodeToString(hashedPassword);
     }
 }

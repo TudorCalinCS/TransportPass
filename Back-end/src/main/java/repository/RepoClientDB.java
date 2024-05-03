@@ -2,6 +2,8 @@ package repository;
 
 import domain.Client;
 import domain.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import server.SrvException;
 
 import java.security.MessageDigest;
@@ -19,14 +21,18 @@ import java.util.Random;
 
 public class RepoClientDB implements IRepoClient {
     private JdbcUtils jdbcUtils;
+    private static final Logger logger = LogManager.getLogger(RepoClientDB.class);
 
     public RepoClientDB(Properties properties) {
         this.jdbcUtils = new JdbcUtils(properties);
+        logger.info("Initializing RepoClientDB  with properties: {} ", properties );
     }
 
     @Override
     public Client findOne(Long aLong) {
+        logger.traceEntry("Find client with id: {} ", aLong);
         if (aLong == null) {
+            logger.error(new IllegalArgumentException("Id null"));
             throw new IllegalArgumentException("Error! Id cannot be null!");
         }
 
@@ -44,22 +50,26 @@ public class RepoClientDB implements IRepoClient {
 
                 if (user != null) {
                     Client client = new Client(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), statut);
+                    logger.traceExit(client);
                     return client;
                 } else {
+                    logger.traceExit();
                     return null;
                 }
             }
 
         } catch (SQLException e) {
+            logger.error(e);
             throw new RuntimeException(e);
         }
-
+        logger.traceExit("No client found with id: {}", aLong);
         return null;
     }
 
 
     @Override
     public List<Client> findAll() {
+        logger.traceEntry("Finding all clienti");
         List<Client> clients = new ArrayList<>();
         Connection con = jdbcUtils.getConnection();
 
@@ -78,8 +88,10 @@ public class RepoClientDB implements IRepoClient {
                 clients.add(client);
 
             }
+            logger.traceExit(clients);
             return clients;
         } catch (SQLException e) {
+            logger.error(e);
             throw new RuntimeException(e);
         }
     }
@@ -87,6 +99,7 @@ public class RepoClientDB implements IRepoClient {
     @Override
     public void save(Client entity) throws SrvException {
         Connection con = jdbcUtils.getConnection();
+        logger.traceEntry("saving client: {}", entity);
 
         try (PreparedStatement prepStatement = con.prepareStatement("insert into Client(statut,userId) values (?,?)")) {
 
@@ -103,9 +116,10 @@ public class RepoClientDB implements IRepoClient {
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error from DataBase: " + e);
+            logger.error(e);
             throw new SrvException(e.getMessage());
         }
-
+        logger.traceExit();
     }
 
     @Override
@@ -116,11 +130,5 @@ public class RepoClientDB implements IRepoClient {
     @Override
     public void delete(Client entity) {
 
-    }
-
-    public String encryptPassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] hashedPassword = md.digest(password.getBytes());
-        return Base64.getEncoder().encodeToString(hashedPassword);
     }
 }
