@@ -218,6 +218,7 @@ import org.json.JSONObject;
 import java.io.*;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class ClientObjectWorker implements Runnable, IObserver {
     private IServices server;
@@ -310,13 +311,19 @@ public class ClientObjectWorker implements Runnable, IObserver {
 
         } else if (type.equals("BuyTicket")) {
             System.out.println("Buy Ticket request...");
-            LocalDateTime dataIncepere = LocalDateTime.parse(request.getString("dataIncepere"));
-            LocalDateTime dataExpirare = LocalDateTime.parse(request.getString("dataExpirare"));
+            LocalDateTime dataIncepere = LocalDateTime.now();
+            LocalDateTime dataExpirare;
             Double pret = request.getDouble("pret");
             String tip = request.getString("tip");
-            Long idClient = Long.valueOf(request.getString("codClient"));
+            if(Objects.equals(tip, "URBAN TICKET") || Objects.equals(tip, "NIGHT TICKET"))
+                dataExpirare = dataIncepere.plusMinutes(60);
+            else if(Objects.equals(tip, "ONE DAY TICKET"))
+                dataExpirare = dataIncepere.plusHours(24);
+            else
+                dataExpirare = dataIncepere.plusHours(78);
             try {
-                server.buyTicket(dataIncepere, dataExpirare, pret, tip, idClient);
+                System.out.println("ID CLIENT: " + this.currentUser.getId());
+                server.buyTicket(dataIncepere, dataExpirare, pret, tip,this.currentUser.getId());
                 response.put("type", "OkResponse");
 
             } catch (SrvException e) {

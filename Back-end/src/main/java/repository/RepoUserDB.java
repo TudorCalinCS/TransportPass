@@ -139,6 +139,9 @@ public class RepoUserDB implements IRepoUser {
                 logger.traceExit(user);
                 return user;
             }
+            else{
+                System.out.println("No user found with username: " + username + " and password: " + password);
+            }
         } catch (SQLException | NoSuchAlgorithmException e) {
             logger.error("Error executing SQL query", e);
             throw new RuntimeException("Error executing SQL query", e);
@@ -178,4 +181,7 @@ public class RepoUserDB implements IRepoUser {
         byte[] hashedPassword = md.digest(password.getBytes());
         return Base64.getEncoder().encodeToString(hashedPassword);
     }
+
+
+
 }

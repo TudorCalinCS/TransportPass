@@ -10,5 +10,5 @@ public interface IServices {
 
     void createClient(String nume, String prenume, String email, String parola, String CNP, String statut) throws SrvException;
 
-    void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip,Long idClient) throws SrvException;
+    void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip,long id) throws SrvException;
 }

@@ -55,15 +55,20 @@ public class ServicesImpl implements IServices {
         User user = repoUserDB.findOneByUsernameAndPassword(email, parola);
         if (user != null) {
             loggedClients.put(user.getId().toString(), client);
+            System.out.println("User logged in: " + user.getId());
             return user;
+
             //notifyFriendsLoggedIn(user);
-        } else
+        } else{
+            System.out.println("Authentication failed.");
             throw new SrvException("Authentication failed.");
+        }
     }
 
-    public synchronized void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Long idClient) throws SrvException {
+    public synchronized void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, long id) throws SrvException {
         try {
-            Client client = repoClientDB.findOne(idClient);
+            Client client = repoClientDB.findOne(id);
+            System.out.println("Client: " + client.getId() + " " + client.getNume() + " " + client.getPrenume() + " " + client.getEmail() + " " + client.getParola() + " " + client.getCNP() + " " + client.getStatut());
             Random random = new Random();
             long randomID = random.nextLong();
             Bilet bilet = new Bilet(randomID, dataIncepere, dataExpirare, pret, tip, client);
