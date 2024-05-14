@@ -1,0 +1,1190 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/resize3"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back_arrow_black"
+            android:contentDescription="Back"/>
+
+
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="114dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="All Bus Lines"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="24sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/AUTOBUZE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="BUSES"
+                android:textSize="12sp"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <TextView
+                android:id="@+id/TROLEIBUZE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="TROLLEYBUSES"
+                android:textSize="12sp"
+                android:textColor="@android:color/holo_green_dark" />
+
+            <TextView
+                android:id="@+id/TRAMVAIE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="TRAMS"
+                android:textSize="12sp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/MICROBUZE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="MICROBUSES"
+                android:textSize="12sp"
+                android:textColor="@android:color/holo_orange_dark" />
+
+
+
+        </LinearLayout>
+            <!-- Repeat the above LinearLayout pattern for all 17 rows -->
+            <!-- For simplicity, I'm showing only one row here -->
+
+            <!-- Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 1"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 2"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:text="LINIA 3"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_weight="1"
+                    android:text="LINIA 4"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 5"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 6"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 7"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 8"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 8L"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 9"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 10"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 14"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 18"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 19"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 20"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 21"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_orange_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 22"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 23"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 24"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 24B"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 25"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 26"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 26L"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 27"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 28"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 28B"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 29"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 29S"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Column 1 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:text="LINIA 30"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 2 -->
+                <Button
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 31"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 3 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 32"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_margin="4dp"/>
+
+                <!-- Column 4 -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LINIA 32B"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:layout_margin="4dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 33"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 34"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 35"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 36B"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 36B"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 37"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 38"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 39"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 39L"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 40"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 41"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 42"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 43"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 43B"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 43P"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 44"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 45"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 46"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 46B"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 46L"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 47"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 48"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 48L"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 50"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINAI 50D"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 50L"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 52"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 52L"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 53"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 100"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 100L"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 101"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 102"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA 102L"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M11"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M12"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M13"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M16"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M18"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M17"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M21"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M22"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M23"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M24"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M25"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M26"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M31"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M32"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M33"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M34"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M34B"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M35"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M37"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M38"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M39"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M39L"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M41"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M41L"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M42"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M42L"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M43"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M44"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M45"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M51"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Column 1 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M52"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 2 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M61"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 3 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M71"
+                android:layout_margin="4dp"/>
+
+            <!-- Column 4 -->
+            <Button
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LINIA M81"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -4,6 +4,8 @@ package server;
 import repository.*;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Properties;
 
 
@@ -29,8 +31,10 @@ public class StartObjectServer {
 
         IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB,repoImagineDB);
 
-
         int chatServerPort = defaultPort;
+
+        // Use the predefined server_address
+
         try {
             chatServerPort = Integer.parseInt(serverProps.getProperty("chat.server.port"));
         } catch (NumberFormatException nef) {
@@ -41,6 +45,7 @@ public class StartObjectServer {
         AbstractServer server = new ChatObjectConcurrentServer(chatServerPort, chatServerImpl);
         try {
             server.start();
+
         } catch (ServerException e) {
             System.err.println("Error starting the server" + e.getMessage());
         }
