@@ -105,13 +105,12 @@ public class RepoClientDB implements IRepoClient {
 
             RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
 
-            Random random = new Random();
-            long randomLong = random.nextLong();
 
-            repoUserDB.save(new User(randomLong, entity.getNume(), entity.getPrenume(), entity.getEmail(), entity.getParola(), entity.getCNP()));
+
+            repoUserDB.save(new User(entity.getId(), entity.getNume(), entity.getPrenume(), entity.getEmail(), entity.getParola(), entity.getCNP()));
 
             prepStatement.setString(1, entity.getStatut());
-            prepStatement.setLong(2, randomLong);
+            prepStatement.setLong(2, entity.getId());
 
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {
