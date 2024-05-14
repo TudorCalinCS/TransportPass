@@ -1,0 +1,161 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ImageView to display the drawable covering 40% of the screen -->
+    <ImageView
+        android:id="@+id/topHalfImage"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/animation_list"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:src="@drawable/logonou" />
+
+    <!-- ImageButton for back navigation -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:contentDescription="Back"/>
+
+    <!-- Guideline to split the layout into top and bottom halves -->
+    <View
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent"
+        android:layout_centerVertical="true" />
+
+    <!-- TextView for the title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's choose your Bus Pass!"
+        android:textStyle="bold"
+        android:textColor="@color/new_purple"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/topHalfImage" />
+
+    <!-- TextView for the pass selection question -->
+    <TextView
+        android:id="@+id/questionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select a Bus Pass type:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/titleTextView" />
+
+    <!-- RadioGroup for bus pass types -->
+    <RadioGroup
+        android:id="@+id/busPassRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionTextView"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp">
+
+        <!-- Radio buttons for different bus pass types -->
+        <RadioButton
+            android:id="@+id/radio_daily_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="URBAN PASS - valid in the municipality of Cluj-Napoca" />
+
+        <RadioButton
+            android:id="@+id/radio_weekly_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="METROPOLITAN PASS - valid in the municipality of Cluj-Napoca and the localities in the metropolitan area"
+            android:layout_marginTop="8dp" />
+
+        <RadioButton
+            android:id="@+id/radio_monthly_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INTRA-COMMUNAL PASS - for traveling within a municipality"
+            android:layout_marginTop="8dp" />
+
+        <RadioButton
+            android:id="@+id/radio_annual_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INTER-COMMUNAL PASS - for traveling between neighboring municipalities"
+            android:layout_marginTop="8dp" />
+
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="620dp">
+
+        <Spinner
+            android:id="@+id/userTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_background"
+            android:entries="@array/user_types" />
+
+
+    </RelativeLayout>
+
+    <!-- Horizontal LinearLayout for button and text -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/busPassRadioGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal">
+
+        <!-- Text view for "Go to checkout" -->
+        <TextView
+            android:id="@+id/checkoutTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to checkout..."
+            android:textColor="@color/new_purple"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp" /> <!-- Increase marginEnd to create space -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/paymentButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:text="PAYMENT"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/purple"
+            app:cornerRadius="32dp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

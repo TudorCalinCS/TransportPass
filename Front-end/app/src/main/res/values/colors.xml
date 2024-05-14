@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple">#951193</color>
+    <color name="my_secondary">#951193</color>
+    <color name="my_primary">#951193</color>
+    <color name="bby_blue">#D8EFFA</color>
+    <color name="new_purple">#951193</color>
+    <color name="new_purpleee">#F8E1FD</color>
+    <color name="redd">#F3174E</color>
+    <color name="colorPassSelected">#CE96DC</color>
+</resources>

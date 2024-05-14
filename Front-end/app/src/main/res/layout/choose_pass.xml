@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/new_purpleee"
+    tools:context=".ChoosePass">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_25"
+        android:contentDescription="Back"/>
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logonou"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <RelativeLayout
+        android:id="@+id/urbanpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/urban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. URBAN PASS:"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/urbanTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/urban"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="10dp"
+            android:text="These bus passes are only valid within the municipality of Cluj-Napoca."
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/metropass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/urbanpass"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/metro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. METROPOLITAN PASS:"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/metroTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/metro"
+            android:layout_marginTop="10dp"
+            android:text="These subscriptions are valid for traveling between the city of Cluj-Napoca and the localities, in the metropolitan area."
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/intrapass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/metropass"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/intra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. INTRA-COMUNAL PASS:"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/intraTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/intra"
+            android:layout_marginTop="10dp"
+            android:text="These subscriptions are valid for traveling within a municipality, in the metropolitan area."
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/interpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/intrapass"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/inter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. INTER-COMUNAL PASS:"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/interTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/inter"
+            android:layout_marginTop="10dp"
+            android:text="These subscriptions are valid for travel between two neighboring municipalities, in the metropolitan area."
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DONE"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/black"
+        android:layout_below="@id/interpass"
+        android:layout_centerHorizontal="true"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:layout_marginTop="25dp"/>
+
+</RelativeLayout>
