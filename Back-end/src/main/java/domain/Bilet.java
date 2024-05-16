@@ -3,14 +3,14 @@ package domain;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Bilet extends Entity<Long> {
+public class Bilet extends Entity<Integer> {
     private LocalDateTime dataIncepere;
     private LocalDateTime dataExpirare;
     private Double pret;
     private String tip;
     private Client codClient;
 
-    public Bilet(Long id,LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Client codClient) {
+    public Bilet(Integer id,LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Client codClient) {
         this.id = id;
         this.dataIncepere = dataIncepere;
         this.dataExpirare = dataExpirare;
@@ -19,12 +19,12 @@ public class Bilet extends Entity<Long> {
         this.codClient = codClient;
     }
     @Override
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
     @Override
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public LocalDateTime getDataIncepere() {

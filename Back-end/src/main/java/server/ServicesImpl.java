@@ -45,7 +45,7 @@ public class ServicesImpl implements IServices {
     public synchronized void createClient(String nume, String prenume, String email, String parola, String CNP, String statut) throws SrvException {
         try {
             Random random = new Random();
-            long randomID = random.nextLong();
+            int randomID = random.nextInt();
             Client client = new Client(randomID, nume, prenume, email, parola, CNP, statut);
             repoClientDB.save(client);
         } catch (SrvException e) {
@@ -68,12 +68,12 @@ public class ServicesImpl implements IServices {
         }
     }
 
-    public synchronized void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, long id) throws SrvException {
+    public synchronized void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Integer id) throws SrvException {
         try {
             Client client = repoClientDB.findOne(id);
             System.out.println("Client: " + client.getId() + " " + client.getNume() + " " + client.getPrenume() + " " + client.getEmail() + " " + client.getParola() + " " + client.getCNP() + " " + client.getStatut());
             Random random = new Random();
-            long randomID = random.nextLong();
+            int randomID = random.nextInt();
             Bilet bilet = new Bilet(randomID, dataIncepere, dataExpirare, pret, tip, client);
             repoBiletDB.save(bilet);
             //Generate QR
@@ -84,24 +84,27 @@ public class ServicesImpl implements IServices {
         }
     }
 
-    public Abonament findAbonamentByClientId(Long id) {
+
+
+    public Abonament findAbonamentByClientId(Integer id) {
         return repoAbonamentDB.findAbonamentByUser(id);
     }
 
-    public synchronized List<Bilet> getTicketsByClientId(Long idClient) {
+    public synchronized List<Bilet> getTicketsByClientId(Integer idClient) {
         return repoBiletDB.findAllByUser(idClient);
     }
 
-    public byte[] getQr(Long id) {
+    public byte[] getQr(Integer id) {
         return repoImagineDB.findOne(Math.toIntExact(id));
     }
 
-    public void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Long idClient) throws SrvException {
+    public void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Integer idClient) throws SrvException {
         try {
             Client client = repoClientDB.findOne(idClient);
             Random random = new Random();
-            long randomID = random.nextLong();
-            Abonament abonament = new Abonament(randomID, dataIncepere, dataExpirare, pret, tip, client);
+
+            int randomID = random.nextInt();
+            Abonament abonament=new Abonament(randomID,dataIncepere,dataExpirare,pret,tip,client);
             repoAbonamentDB.save(abonament);
             byte[] image = generateQRCode(randomID);
             repoImagineDB.save(String.valueOf(randomID), "abonament", image);
@@ -109,7 +112,11 @@ public class ServicesImpl implements IServices {
             throw new SrvException("Buying pass failed.");
         }
     }
-
+    public Boolean isClient(Integer userId){
+        if(repoClientDB.findOne(userId)!=null)
+            return true;
+        return false;
+    }
     private final int defaultThreadsNo = 5;
     /*
     private void notifyFriendsLoggedIn(User user) throws ChatException {

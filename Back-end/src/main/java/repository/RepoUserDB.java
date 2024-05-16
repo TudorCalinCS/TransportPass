@@ -27,7 +27,7 @@ public class RepoUserDB implements IRepoUser {
     }
 
     @Override
-    public User findOne(Long aLong) {
+    public User findOne(Integer aLong) {
 
         logger.traceEntry("Find user with id: {} ", aLong);
 
@@ -63,31 +63,6 @@ public class RepoUserDB implements IRepoUser {
 
     @Override
     public List<User> findAll() {
-        /**
-         List<User> users = new ArrayList<>();
-         Connection con = jdbcUtils.getConnection();
-
-         try (PreparedStatement statement = con.prepareStatement("select * from User")){
-
-         ResultSet resultSet = statement.executeQuery();
-         while (resultSet.next())
-         {
-         Long id = resultSet.getLong("id");
-         String nume = resultSet.getString("nume");
-         String prenume = resultSet.getString("prenume");
-         String email = resultSet.getString("email");
-         String parola = resultSet.getString("parola");
-         String CNP = resultSet.getString("CNP");
-
-         User user = new User(id,nume,prenume,email,parola,CNP);
-         users.add(user);
-
-         }
-         return users;
-         }
-         catch (SQLException e){
-         throw new RuntimeException(e);
-         }*/
         return null;
     }
 
@@ -98,7 +73,7 @@ public class RepoUserDB implements IRepoUser {
 
         try (PreparedStatement prepStatement = con.prepareStatement("insert into User(id,nume,prenume,email,parola,CNP) " +
                 "values (?,?,?,?,?,?)")) {
-            prepStatement.setInt(1, entity.getId().intValue());
+            prepStatement.setInt(1, entity.getId());
             prepStatement.setString(2, entity.getNume());
             prepStatement.setString(3, entity.getPrenume());
             prepStatement.setString(4, entity.getEmail());
@@ -129,7 +104,7 @@ public class RepoUserDB implements IRepoUser {
 
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                Long id = resultSet.getLong("id");
+                Integer id = resultSet.getInt("id");
                 String nume = resultSet.getString("nume");
                 String prenume = resultSet.getString("prenume");
                 String email = resultSet.getString("email");

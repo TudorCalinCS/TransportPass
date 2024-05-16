@@ -29,7 +29,7 @@ public class RepoClientDB implements IRepoClient {
     }
 
     @Override
-    public Client findOne(Long aLong) {
+    public Client findOne(Integer aLong) {
         logger.traceEntry("Find client with email: {} ", aLong);
         if (aLong == null) {
             logger.error(new IllegalArgumentException("Id null"));
@@ -77,7 +77,7 @@ public class RepoClientDB implements IRepoClient {
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                Long userID = resultSet.getLong("userId");
+                Integer userID = resultSet.getInt("userId");
                 String statut = resultSet.getString("statut");
 
                 RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
@@ -110,7 +110,7 @@ public class RepoClientDB implements IRepoClient {
             repoUserDB.save(new User(entity.getId(), entity.getNume(), entity.getPrenume(), entity.getEmail(), entity.getParola(), entity.getCNP()));
 
             prepStatement.setString(1, entity.getStatut());
-            prepStatement.setLong(2, entity.getId());
+            prepStatement.setInt(2, entity.getId());
 
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {
@@ -131,41 +131,5 @@ public class RepoClientDB implements IRepoClient {
 
     }
 
-    public Client findByEmailAndPassword(String email,String password) {
-        logger.traceEntry("Find client with email: {} ", email);
-        if (email == null) {
-            logger.error(new IllegalArgumentException("Id null"));
-            throw new IllegalArgumentException("Error! Id cannot be null!");
-        }
-
-        Connection con = jdbcUtils.getConnection();
-        try (PreparedStatement statement = con.prepareStatement("select * from Client where email = ?")) {
-
-            statement.setString(1, email);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-
-                String statut = resultSet.getString("statut");
-
-                RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
-                User user = repoUserDB.findOneByUsernameAndPassword(email,password);
-
-                if (user != null) {
-                    Client client = new Client(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), statut);
-                    logger.traceExit(client);
-                    return client;
-                } else {
-                    logger.traceExit();
-                    return null;
-                }
-            }
-
-        } catch (SQLException e) {
-            logger.error(e);
-            throw new RuntimeException(e);
-        }
-        logger.traceExit("No client found with email: {}", email);
-        return null;
-    }
 
 }

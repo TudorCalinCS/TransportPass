@@ -21,9 +21,10 @@ public class RepoImagineDB {
     public byte[] findOne(int id) {
         logger.traceEntry("Find imagine with id: {} ", id);
         Connection con = jdbcUtils.getConnection();
+        String idParinte= String.valueOf(id);
         String sql = "SELECT continut_imagine FROM imagini WHERE id = ?";
         try (PreparedStatement statement = con.prepareStatement(sql)) {
-            statement.setInt(1, id);
+            statement.setString(1, idParinte);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 logger.traceExit("imagine gasita");

@@ -28,7 +28,7 @@ public class RepoBiletDB implements IRepoBilet {
     }
 
     @Override
-    public Bilet findOne(Long aLong) {
+    public Bilet findOne(Integer aLong) {
         logger.traceEntry("Find bilet with id: {} ", aLong);
         if (aLong == null) {
             logger.error(new IllegalArgumentException("Id null"));
@@ -39,14 +39,14 @@ public class RepoBiletDB implements IRepoBilet {
         try (PreparedStatement statement = con.prepareStatement("select * from Bilet " +
                 "where id = ?")) {
 
-            statement.setInt(1, Math.toIntExact(aLong));
+            statement.setInt(1, aLong);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 LocalDateTime dataIncepere = resultSet.getTimestamp("dataIncepere").toLocalDateTime();
                 LocalDateTime dataExpirare = resultSet.getTimestamp("dataExpirare").toLocalDateTime();
                 Double pret = resultSet.getDouble("pret");
                 String tip = resultSet.getString("tip");
-                Long idClient = resultSet.getLong("idClient");
+                Integer idClient = resultSet.getInt("idClient");
                 Client client = repoClient.findOne(idClient);
                 Bilet bilet = new Bilet(aLong, dataIncepere, dataExpirare, pret, tip, client);
                 logger.traceExit(bilet);
@@ -69,12 +69,12 @@ public class RepoBiletDB implements IRepoBilet {
         try (PreparedStatement statement = con.prepareStatement("select * from Bilet")) {
             try (ResultSet result = statement.executeQuery()) {
                 while (result.next()) {
-                    Long id = result.getLong("id");
+                    Integer id = result.getInt("id");
                     LocalDateTime dataIncepere = result.getTimestamp("dataIncepere").toLocalDateTime();
                     LocalDateTime dataExpirare = result.getTimestamp("dataExpirare").toLocalDateTime();
                     Double pret = result.getDouble("pret");
                     String tip = result.getString("tip");
-                    Long idClient = result.getLong("idClient");
+                    Integer idClient = result.getInt("idClient");
                     Client client = repoClient.findOne(idClient);
                     Bilet bilet = new Bilet(id, dataIncepere, dataExpirare, pret, tip, client);
                     tickets.add(bilet);
@@ -93,13 +93,14 @@ public class RepoBiletDB implements IRepoBilet {
         Connection con = jdbcUtils.getConnection();
         logger.traceEntry("saving bilet: {}", entity);
 
-        try (PreparedStatement prepStatement = con.prepareStatement("insert into Bilet(dataIncepere, dataExpirare, pret, tip, idClient) " +
-                "values (?,?,?,?,?)")) {
-            prepStatement.setString(1, entity.getDataIncepere().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            prepStatement.setString(2, entity.getDataExpirare().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            prepStatement.setDouble(3, entity.getPret());
-            prepStatement.setString(4, entity.getTip());
-            prepStatement.setLong(5, entity.getCodClient().getId());
+        try (PreparedStatement prepStatement = con.prepareStatement("insert into Bilet(id,dataIncepere, dataExpirare, pret, tip, idClient) " +
+                "values (?,?,?,?,?,?)")) {
+            prepStatement.setInt(1, Math.toIntExact(entity.getId()));
+            prepStatement.setString(2, entity.getDataIncepere().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            prepStatement.setString(3, entity.getDataExpirare().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            prepStatement.setDouble(4, entity.getPret());
+            prepStatement.setString(5, entity.getTip());
+            prepStatement.setInt(6, entity.getCodClient().getId());
 
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {
@@ -119,7 +120,7 @@ public class RepoBiletDB implements IRepoBilet {
         Connection con = jdbcUtils.getConnection();
         logger.traceEntry("deleting bilet: {} ", entity);
         try (PreparedStatement preStmt = con.prepareStatement("DELETE FROM Bilet WHERE id = ?")) {
-            preStmt.setLong(1, entity.getId());
+            preStmt.setInt(1, entity.getId());
             int rowsAffected = preStmt.executeUpdate();
             if(rowsAffected == 0) logger.traceExit("could not delete: {}", entity);
             else logger.traceExit("deleted bilet: {} ", entity);
@@ -134,15 +135,15 @@ public class RepoBiletDB implements IRepoBilet {
             }
         }
     }
-    public List<Bilet> findAllByUser(Long idClient) {
+    public List<Bilet> findAllByUser(Integer idClient) {
         logger.traceEntry("Finding all bilete");
         Connection con = jdbcUtils.getConnection();
         List<Bilet> tickets = new ArrayList<>();
         try (PreparedStatement statement = con.prepareStatement("select * from Bilet where idClient = ?")) {
             try (ResultSet result = statement.executeQuery()) {
-                statement.setLong(1,idClient);
+                statement.setInt(1,idClient);
                 while (result.next()) {
-                    Long id = result.getLong("id");
+                    Integer id = result.getInt("id");
                     LocalDateTime dataIncepere = result.getTimestamp("dataIncepere").toLocalDateTime();
                     LocalDateTime dataExpirare = result.getTimestamp("dataExpirare").toLocalDateTime();
                     Double pret = result.getDouble("pret");
