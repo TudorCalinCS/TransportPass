@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Client extends User{
     private String statut;
 
-    public Client(Long id,String nume, String prenume, String email, String parola, String CNP, String statut) {
+    public Client(Integer id,String nume, String prenume, String email, String parola, String CNP, String statut) {
         super(id,nume, prenume, email, parola, CNP);
         this.statut = statut;
     }

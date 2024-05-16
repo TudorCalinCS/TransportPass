@@ -29,7 +29,7 @@ public class RepoAbonamentDB implements IRepoAbonament {
     }
 
     @Override
-    public Abonament findOne(Long aLong) {
+    public Abonament findOne(Integer aLong) {
         logger.traceEntry("Find abonament with id: {} ", aLong);
         if (aLong == null) {
             logger.error(new IllegalArgumentException("Id null"));
@@ -47,7 +47,7 @@ public class RepoAbonamentDB implements IRepoAbonament {
                 LocalDateTime dataExpirare = resultSet.getTimestamp("dataExpirare").toLocalDateTime();
                 Double pret = resultSet.getDouble("pret");
                 String tip = resultSet.getString("tip");
-                Long idClient = resultSet.getLong("idClient");
+                Integer idClient = resultSet.getInt("idClient");
                 Client client = repoClient.findOne(idClient);
                 Abonament abonament = new Abonament(aLong, dataIncepere, dataExpirare, pret, tip, client);
                 logger.traceExit(abonament);
@@ -70,12 +70,12 @@ public class RepoAbonamentDB implements IRepoAbonament {
         try (PreparedStatement statement = con.prepareStatement("select * from Abonament")) {
             try (ResultSet result = statement.executeQuery()) {
                 while (result.next()) {
-                    Long id = result.getLong("id");
+                    Integer id = result.getInt("id");
                     LocalDateTime dataIncepere = result.getTimestamp("dataIncepere").toLocalDateTime();
                     LocalDateTime dataExpirare = result.getTimestamp("dataExpirare").toLocalDateTime();
                     Double pret = result.getDouble("pret");
                     String tip = result.getString("tip");
-                    Long idClient = result.getLong("idClient");
+                    Integer idClient = result.getInt("idClient");
                     Client client = repoClient.findOne(idClient);
                     Abonament abonament = new Abonament(id, dataIncepere, dataExpirare, pret, tip, client);
                     abonamente.add(abonament);
@@ -94,13 +94,14 @@ public class RepoAbonamentDB implements IRepoAbonament {
         logger.traceEntry("saving abonament: {}", entity);
         Connection con = jdbcUtils.getConnection();
 
-        try (PreparedStatement prepStatement = con.prepareStatement("insert into Abonament(dataIncepere, dataExpirare, pret, tip, idClient) " +
-                "values (?,?,?,?,?)")) {
-            prepStatement.setString(1, entity.getDataIncepere().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            prepStatement.setString(2, entity.getDataExpirare().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            prepStatement.setDouble(3, entity.getPret());
-            prepStatement.setString(4, entity.getTip());
-            prepStatement.setLong(5, entity.getCodClient().getId());
+        try (PreparedStatement prepStatement = con.prepareStatement("insert into Abonament(id,dataIncepere, dataExpirare, pret, tip, idClient) " +
+                "values (?,?,?,?,?,?)")) {
+            prepStatement.setInt(1, entity.getId());
+            prepStatement.setString(2, entity.getDataIncepere().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            prepStatement.setString(3, entity.getDataExpirare().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            prepStatement.setDouble(4, entity.getPret());
+            prepStatement.setString(5, entity.getTip());
+            prepStatement.setLong(6, entity.getCodClient().getId());
 
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {
@@ -151,7 +152,7 @@ public class RepoAbonamentDB implements IRepoAbonament {
         }
     }
 
-    public Abonament findAbonamentByUser(Long idUser) {
+    public Abonament findAbonamentByUser(Integer idUser) {
         logger.traceEntry("finding Pass by User's id: {} ", idUser);
         Connection con = jdbcUtils.getConnection();
         try (PreparedStatement statement = con.prepareStatement("SELECT * from Abonament " + "where idClient = ?")) {
@@ -159,12 +160,12 @@ public class RepoAbonamentDB implements IRepoAbonament {
             statement.setInt(1, Math.toIntExact(idUser));
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                Long idPass = resultSet.getLong("id");
+                Integer idPass = resultSet.getInt("id");
                 LocalDateTime dataIncepere = resultSet.getTimestamp("dataIncepere").toLocalDateTime();
                 LocalDateTime dataExpirare = resultSet.getTimestamp("dataExpirare").toLocalDateTime();
                 Double pret = resultSet.getDouble("pret");
                 String tip = resultSet.getString("tip");
-                Long idClient = resultSet.getLong("idClient");
+                Integer idClient = resultSet.getInt("idClient");
                 Client client = repoClient.findOne(idClient);
                 Abonament abonament = new Abonament(idPass, dataIncepere, dataExpirare, pret, tip, client);
                 logger.traceExit(abonament);

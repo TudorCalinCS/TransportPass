@@ -305,7 +305,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String parola = request.getString("parola");
             try {
                 this.currentUser = server.login(email, parola, this);
-                if(currentUser instanceof Client)
+                if(server.isClient(currentUser.getId()))
                     response.put("type", "ClientResponse");
                 else  response.put("type", "ControlorResponse");
 

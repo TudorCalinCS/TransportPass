@@ -24,7 +24,7 @@ public class RepoControlorDB implements IRepoControlor {
     }
 
     @Override
-    public Controlor findOne(Long aLong) {
+    public Controlor findOne(Integer aLong) {
         logger.traceEntry("Find controlor with id: {} ", aLong);
         if (aLong == null) {
             logger.error(new IllegalArgumentException("Id null"));
@@ -74,7 +74,7 @@ public class RepoControlorDB implements IRepoControlor {
                 String numarLegitimatie = resultSet.getString("legitimatie");
 
                 RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
-                Long userID = resultSet.getLong("userId");
+                Integer userID = resultSet.getInt("userId");
 
                 User user = repoUserDB.findOne(userID);
 
@@ -104,12 +104,12 @@ public class RepoControlorDB implements IRepoControlor {
             RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
 
             Random random = new Random();
-            long randomLong = random.nextLong();
+            int randomInt = random.nextInt();
 
-            repoUserDB.save(new User(randomLong, entity.getNume(), entity.getPrenume(), entity.getEmail(), entity.getParola(), entity.getCNP()));
+            repoUserDB.save(new User(randomInt, entity.getNume(), entity.getPrenume(), entity.getEmail(), entity.getParola(), entity.getCNP()));
 
             prepStatement.setString(1, entity.getNumarLegitimatie());
-            prepStatement.setLong(2, randomLong);
+            prepStatement.setInt(2, randomInt);
 
             int affectedRows = prepStatement.executeUpdate();
         } catch (SQLException e) {

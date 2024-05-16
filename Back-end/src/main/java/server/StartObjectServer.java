@@ -1,7 +1,9 @@
 package server;
 
 
+import domain.Abonament;
 import domain.Client;
+import domain.User;
 import repository.*;
 
 import java.io.IOException;
@@ -14,7 +16,7 @@ import java.util.Properties;
 public class StartObjectServer {
     private static int defaultPort = 55555;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SrvException {
         Properties serverProps = new Properties();
         try {
             serverProps.load(StartObjectServer.class.getResourceAsStream("/server.properties"));
@@ -34,6 +36,8 @@ public class StartObjectServer {
         IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB,repoImagineDB);
 
         int chatServerPort = defaultPort;
+
+        //Test
         // Use the predefined server_address
 
         try {

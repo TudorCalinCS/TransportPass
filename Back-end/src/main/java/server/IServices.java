@@ -14,14 +14,15 @@ public interface IServices {
 
     void createClient(String nume, String prenume, String email, String parola, String CNP, String statut) throws SrvException;
 
-    void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, long id) throws SrvException;
+    void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Integer id) throws SrvException;
 
-    Abonament findAbonamentByClientId(Long id);
+    Abonament findAbonamentByClientId(Integer id);
 
-    List<Bilet> getTicketsByClientId(Long idClient);
+    List<Bilet> getTicketsByClientId(Integer idClient);
 
-    byte[] getQr(Long id);
+    byte[] getQr(Integer id);
 
-    void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Long idClient) throws SrvException;
+    void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Integer idClient) throws SrvException;
 
+    Boolean isClient(Integer userId);
 }

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Controlor extends User{
     private String numarLegitimatie;
-    public Controlor(Long id,String nume, String prenume, String email, String parola, String CNP, String numarLegitimatie) {
+    public Controlor(Integer id,String nume, String prenume, String email, String parola, String CNP, String numarLegitimatie) {
         super(id,nume, prenume, email, parola, CNP);
         this.numarLegitimatie = numarLegitimatie;
     }

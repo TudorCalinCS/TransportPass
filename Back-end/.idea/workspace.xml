@@ -5,66 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57d2d3b5-0fba-49cb-ba37-8f1a097299a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0f38646-8239-484c-950f-2ce0794906e4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d0f38646-8239-484c-950f-2ce0794906e4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/TransportPass.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/TransportPass.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/TransportPass.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/TransportPass.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestResponse.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RequestResponse.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TransportPassDB" beforeDir="false" afterPath="$PROJECT_DIR$/TransportPassDB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Abonament.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Abonament.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Bilet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Bilet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Controlor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Controlor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoAbonament.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoAbonament.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoBilet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoBilet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoControlor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoControlor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/JdbcUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/JdbcUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoAbonamentDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoAbonamentDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoBiletDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoBiletDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoClientDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoClientDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoControlorDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoControlorDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoImagineDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoImagineDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoUserDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoUserDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/AbsConcurrentServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/AbsConcurrentServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/AbstractServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/AbstractServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ChatObjectConcurrentServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ChatObjectConcurrentServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ClientObjectWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ClientObjectWorker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/IObserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/IObserver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/IServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/IServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ServerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ServerException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/SrvException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/SrvException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/StartObjectServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/StartObjectServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/utils/QRCodeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/utils/QRCodeGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/TransportPass-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/TransportPass-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ChatObjectConcurrentServer.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ClientObjectWorker.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StartObjectServer.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Abonament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Abonament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Bilet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Bilet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Controlor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Controlor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/IRepoAbonament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoAbonament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/IRepoBilet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoBilet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/IRepoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/IRepoControlor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoControlor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/IRepoUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/IRepoUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoAbonamentDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoAbonamentDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoBiletDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoBiletDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/AbstractServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AbstractServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoClientDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoClientDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoControlorDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoControlorDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoImagineDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoImagineDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoUserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoUserDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ClientObjectWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ClientObjectWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/IServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/IServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/StartObjectServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/StartObjectServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/server.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +280,7 @@
       <workItem from="1715719636381" duration="286000" />
       <workItem from="1715772756701" duration="65000" />
       <workItem from="1715773098708" duration="540000" />
-      <workItem from="1715856589397" duration="5108000" />
+      <workItem from="1715856589397" duration="10901000" />
     </task>
     <servers />
   </component>
