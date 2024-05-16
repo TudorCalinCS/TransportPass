@@ -1,6 +1,7 @@
 package server;
 
 
+import domain.Abonament;
 import domain.Bilet;
 import domain.Client;
 import domain.User;
@@ -79,6 +80,28 @@ public class ServicesImpl implements IServices {
         } catch (SrvException e) {
             throw new SrvException("Buying ticket failed.");
         }
+    }
+
+    public synchronized void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, long id) throws SrvException {
+        try {
+            Client client = repoClientDB.findOne(id);
+            System.out.println("Client: " + client.getId() + " " + client.getNume() + " " + client.getPrenume() + " " + client.getEmail() + " " + client.getParola() + " " + client.getCNP() + " " + client.getStatut());
+            Random random = new Random();
+            long randomID = random.nextLong();
+            Abonament abonament = new Abonament(randomID, dataIncepere, dataExpirare, pret, tip, client);
+            repoAbonamentDB.save(abonament);
+            //Generate QR
+            byte[] image = generateQRCode(randomID);
+            repoImagineDB.save(String.valueOf(randomID), "abonament", image);
+        } catch (SrvException e) {
+            throw new SrvException("Buying pass failed.");
+        }
+
+    }
+
+
+    public Abonament findAbonamentByClientID(long id) throws SrvException {
+            return repoAbonamentDB.findOneByClientID(id);
     }
 
     private final int defaultThreadsNo = 5;

@@ -4,6 +4,7 @@ import domain.Bilet;
 import domain.Client;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import server.SrvException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -151,6 +152,41 @@ public class RepoAbonamentDB implements IRepoAbonament {
                 System.err.println("Eroare la închiderea conexiunii: " + e.getMessage());
             }
         }
+    }
+
+
+
+    public Abonament findOneByClientID(Long aLong) throws SrvException {
+        logger.traceEntry("Find abonament with Client id: {} ", aLong);
+        if(aLong == null) {
+            logger.error(new IllegalArgumentException("Id null"));
+            throw new IllegalArgumentException("Error! ClientId cannot be null!");
+        }
+
+        Connection con = jdbcUtils.getConnection();
+        try(PreparedStatement statement = con.prepareStatement("select * from Abonament " +
+                "where idClient = ?")){
+
+            statement.setInt(1, Math.toIntExact(aLong));
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                LocalDateTime dataIncepere = resultSet.getTimestamp("dataIncepere").toLocalDateTime();
+                LocalDateTime dataExpirare = resultSet.getTimestamp("dataExpirare").toLocalDateTime();
+                Long id = resultSet.getLong("id");
+                Double pret = resultSet.getDouble("pret");
+                String tip = resultSet.getString("tip");
+                Client client=repoClient.findOne(aLong);
+                Abonament abonament=new Abonament(id,dataIncepere,dataExpirare,pret,tip,client);
+                logger.traceExit(abonament);
+                return abonament;
+            }
+        }
+        catch (SQLException e){
+            logger.error(e);
+            throw new RuntimeException(e);
+        }
+        logger.traceExit("No abonament found with ClientId: {}", aLong);
+        return null;
     }
 }
 

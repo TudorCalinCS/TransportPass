@@ -211,6 +211,7 @@
 
 package server;
 
+import domain.Abonament;
 import domain.User;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -325,6 +326,42 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 System.out.println("ID CLIENT: " + this.currentUser.getId());
                 server.buyTicket(dataIncepere, dataExpirare, pret, tip,this.currentUser.getId());
                 response.put("type", "OkResponse");
+
+            } catch (SrvException e) {
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
+        }
+        else if (type.equals("BuyPass")) {
+            System.out.println("Buy Pass request...");
+            LocalDateTime dataIncepere = LocalDateTime.now();
+            LocalDateTime dataExpirare = dataIncepere.plusMonths(1);
+            Double pret = request.getDouble("pret");
+            String tip = request.getString("tip");
+            try {
+                System.out.println("ID CLIENT: " + this.currentUser.getId());
+                server.buyPass(dataIncepere, dataExpirare, pret, tip, this.currentUser.getId());
+                response.put("type", "OkResponse");
+
+            } catch (SrvException e) {
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
+        }
+        else if(type.equals("ShowPass")){
+            System.out.println("Show Pass request...");
+            try{
+                Abonament abonament = server.findAbonamentByClientID(this.currentUser.getId());
+                if(abonament == null){
+                    System.out.println("No pass found for this client");
+                    throw new SrvException("No pass found for this client");
+                }
+                System.out.println("ABONAMENT : " + abonament.getId() + " " + abonament.getDataIncepere() + " " + abonament.getDataExpirare() + " " + abonament.getPret() + " " + abonament.getTip());
+                response.put("type", "AbonamentResponse");
+                response.put("dataIncepere", abonament.getDataIncepere().toString());
+                response.put("dataExpirare", abonament.getDataExpirare().toString());
+                response.put("pret", abonament.getPret());
+                response.put("tip", abonament.getTip());
 
             } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
