@@ -115,6 +115,9 @@ public class ServicesImpl implements IServices {
             return true;
         return false;
     }
+    public byte[] getOrar(String linie){
+        return repoImagineDB.findOrar(linie);
+    }
     private final int defaultThreadsNo = 5;
     /*
     private void notifyFriendsLoggedIn(User user) throws ChatException {

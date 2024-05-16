@@ -25,4 +25,6 @@ public interface IServices {
     void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Integer idClient) throws SrvException;
 
     Boolean isClient(Integer userId);
+
+    byte[] getOrar(String linie);
 }
