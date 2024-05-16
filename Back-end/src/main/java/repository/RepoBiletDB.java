@@ -134,4 +134,29 @@ public class RepoBiletDB implements IRepoBilet {
             }
         }
     }
+    public List<Bilet> findAllByUser(Long idClient) {
+        logger.traceEntry("Finding all bilete");
+        Connection con = jdbcUtils.getConnection();
+        List<Bilet> tickets = new ArrayList<>();
+        try (PreparedStatement statement = con.prepareStatement("select * from Bilet where idClient = ?")) {
+            try (ResultSet result = statement.executeQuery()) {
+                statement.setLong(1,idClient);
+                while (result.next()) {
+                    Long id = result.getLong("id");
+                    LocalDateTime dataIncepere = result.getTimestamp("dataIncepere").toLocalDateTime();
+                    LocalDateTime dataExpirare = result.getTimestamp("dataExpirare").toLocalDateTime();
+                    Double pret = result.getDouble("pret");
+                    String tip = result.getString("tip");
+                    Client client = repoClient.findOne(idClient);
+                    Bilet bilet = new Bilet(id, dataIncepere, dataExpirare, pret, tip, client);
+                    tickets.add(bilet);
+                }
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+            System.err.println("Error DB " + e);
+        }
+        logger.traceExit(tickets);
+        return tickets;
+    }
 }

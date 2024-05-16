@@ -17,15 +17,17 @@ ____
 type:ErrorResponse
 message:
 
-# Login client
+# Login
 
 Request
-type:LoginClient
+type:Login
 email:String
 parola:String
 
 Response
-type:OkResponse
+type:ClientResponse
+____
+type:ControlorResponse
 ____
 type:ErrorResponse
 message:
@@ -38,10 +40,51 @@ dataIncepere:String - Format : yyyy-MM-dd HH:mm:ss
 dataExpirare:String - Format : yyyy-MM-dd HH:mm:ss
 pret:Double
 tip:String
-idClient:String
 
 Response
 type:OkResponse
+____
+type:ErrorResponse
+message:
+
+# Get Tickets
+Request
+type:GetTickets
+
+Response:
+size:integer
+id1:Long
+dataIncepere1:String - Format : yyyy-MM-dd HH:mm:ss
+dataExpirare1:String - Format : yyyy-MM-dd HH:mm:ss
+pret1:Double
+tip1:String
+qr1:byte[]
+
+# Buy Pass
+Request
+type:BuyPass
+dataIncepere:String - Format : yyyy-MM-dd HH:mm:ss
+dataExpirare:String - Format : yyyy-MM-dd HH:mm:ss
+pret:Double
+tip:String
+
+Response
+type:OkResponse
+____
+type:ErrorResponse
+message:
+
+# ShowPass:
+Request
+type:SowPass
+
+Response
+type:AbonamentResponse
+dataIncepere:String - Format : yyyy-MM-dd HH:mm:ss
+dataExpirare:String - Format : yyyy-MM-dd HH:mm:ss
+pret:Double
+tip:String
+qr:byte[]
 ____
 type:ErrorResponse
 message:

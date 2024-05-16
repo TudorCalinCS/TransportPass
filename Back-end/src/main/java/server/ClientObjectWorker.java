@@ -211,6 +211,9 @@
 
 package server;
 
+import domain.Abonament;
+import domain.Bilet;
+import domain.Client;
 import domain.User;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -218,7 +221,10 @@ import org.json.JSONObject;
 import java.io.*;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
+
+import static java.lang.System.in;
 
 public class ClientObjectWorker implements Runnable, IObserver {
     private IServices server;
@@ -274,7 +280,6 @@ public class ClientObjectWorker implements Runnable, IObserver {
     }
 
     private JSONObject handleRequest(JSONObject request) throws SrvException {
-        System.out.println("SUNTEM IN HANDLE REQUEST");
         JSONObject response = new JSONObject();
         String type = request.getString("type");
         if (type.equals("CreateClient")) {
@@ -294,13 +299,16 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("message", e.getMessage());
             }
 
-        } else if (type.equals("LoginClient")) {
-            System.out.println("Login Client request...");
+        } else if (type.equals("Login")) {
+            System.out.println("Login request...");
             String email = request.getString("email");
             String parola = request.getString("parola");
             try {
                 this.currentUser = server.login(email, parola, this);
-                response.put("type", "OkResponse");
+                if(currentUser instanceof Client)
+                    response.put("type", "ClientResponse");
+                else  response.put("type", "ControlorResponse");
+
 
             } catch (SrvException e) {
                 connected = false;
@@ -325,6 +333,59 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 System.out.println("ID CLIENT: " + this.currentUser.getId());
                 server.buyTicket(dataIncepere, dataExpirare, pret, tip,this.currentUser.getId());
                 response.put("type", "OkResponse");
+
+            } catch (SrvException e) {
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
+        }
+        else if (type.equals("GetTickets")){
+            System.out.println("Get tickets request...");
+            List<Bilet> list=server.getTicketsByClientId(this.currentUser.getId());
+            response.put("size",list.size());
+            for(int i=1;i<=list.size();i++){
+                Bilet bilet=list.get(i);
+                response.put("id"+i,bilet.getId());
+                response.put("dataIncepere"+i,bilet.getDataIncepere().toString());
+                response.put("dataExpirare"+i,bilet.getDataExpirare().toString());
+                response.put("pret"+i,bilet.getPret());
+                response.put("tip"+i,bilet.getTip());
+                byte[] qr=server.getQr(bilet.getId());
+                response.put("qr"+i,qr);
+            }
+        }
+        else if (type.equals("BuyPass")) {
+            System.out.println("Buy Pass request...");
+            LocalDateTime dataIncepere = LocalDateTime.now();
+            LocalDateTime dataExpirare = dataIncepere.plusMonths(1);
+            Double pret = request.getDouble("pret");
+            String tip = request.getString("tip");
+            try {
+                System.out.println("ID CLIENT: " + this.currentUser.getId());
+                server.buyPass(dataIncepere, dataExpirare, pret, tip, this.currentUser.getId());
+                response.put("type", "OkResponse");
+
+            } catch (SrvException e) {
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
+        }
+        else if(type.equals("ShowPass")){
+            System.out.println("Show Pass request...");
+            try{
+                Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());
+                if(abonament == null){
+                    System.out.println("No pass found for this client");
+                    throw new SrvException("No pass found for this client");
+                }
+                System.out.println("ABONAMENT : " + abonament.getId() + " " + abonament.getDataIncepere() + " " + abonament.getDataExpirare() + " " + abonament.getPret() + " " + abonament.getTip());
+                response.put("type", "AbonamentResponse");
+                response.put("dataIncepere", abonament.getDataIncepere().toString());
+                response.put("dataExpirare", abonament.getDataExpirare().toString());
+                response.put("pret", abonament.getPret());
+                response.put("tip", abonament.getTip());
+                byte[] qr=server.getQr(abonament.getId());
+                response.put("qr",qr);
 
             } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
