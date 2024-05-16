@@ -29,4 +29,6 @@ public interface IServices {
 
     Boolean isClient(Integer userId);
 
+    byte[] getOrar(String linie);
+
 }

@@ -95,10 +95,9 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String parola = request.getString("parola");
             try {
                 this.currentUser = server.login(email, parola, this);
-                if(server.isClient(currentUser.getId()))
+                if (server.isClient(currentUser.getId()))
                     response.put("type", "ClientResponse");
-                else  response.put("type", "ControlorResponse");
-                System.out.println("RESPONSE ESTE : " + response.toString());
+                else response.put("type", "ControlorResponse");
 
             } catch (SrvException e) {
                 connected = false;
@@ -113,40 +112,36 @@ public class ClientObjectWorker implements Runnable, IObserver {
             LocalDateTime dataExpirare;
             Double pret = request.getDouble("pret");
             String tip = request.getString("tip");
-            if(Objects.equals(tip, "URBAN TICKET") || Objects.equals(tip, "NIGHT TICKET"))
+            if (Objects.equals(tip, "URBAN TICKET") || Objects.equals(tip, "NIGHT TICKET"))
                 dataExpirare = dataIncepere.plusMinutes(60);
-            else if(Objects.equals(tip, "ONE DAY TICKET"))
+            else if (Objects.equals(tip, "ONE DAY TICKET"))
                 dataExpirare = dataIncepere.plusHours(24);
             else
                 dataExpirare = dataIncepere.plusHours(78);
             try {
                 System.out.println("ID CLIENT: " + this.currentUser.getId());
-                server.buyTicket(dataIncepere, dataExpirare, pret, tip,this.currentUser.getId());
+                server.buyTicket(dataIncepere, dataExpirare, pret, tip, this.currentUser.getId());
                 response.put("type", "OkResponse");
 
             } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
-        }
-//<<<<<<< HEAD
-//=======
-        else if (type.equals("GetTickets")){
+        } else if (type.equals("GetTickets")) {
             System.out.println("Get tickets request...");
-            List<Bilet> list=server.getTicketsByClientId(this.currentUser.getId());
-            response.put("size",list.size());
-            for(int i=1;i<=list.size();i++){
-                Bilet bilet=list.get(i);
-                response.put("id"+i,bilet.getId());
-                response.put("dataIncepere"+i,bilet.getDataIncepere().toString());
-                response.put("dataExpirare"+i,bilet.getDataExpirare().toString());
-                response.put("pret"+i,bilet.getPret());
-                response.put("tip"+i,bilet.getTip());
-                byte[] qr=server.getQr(bilet.getId());
-                response.put("qr"+i,qr);
+            List<Bilet> list = server.getTicketsByClientId(this.currentUser.getId());
+            response.put("size", list.size());
+            for (int i = 1; i <= list.size(); i++) {
+                Bilet bilet = list.get(i);
+                response.put("id" + i, bilet.getId());
+                response.put("dataIncepere" + i, bilet.getDataIncepere().toString());
+                response.put("dataExpirare" + i, bilet.getDataExpirare().toString());
+                response.put("pret" + i, bilet.getPret());
+                response.put("tip" + i, bilet.getTip());
+                byte[] qr = server.getQr(bilet.getId());
+                response.put("qr" + i, qr);
             }
-        }
-        else if (type.equals("BuyPass")) {
+        } else if (type.equals("BuyPass")) {
             System.out.println("Buy Pass request...");
             LocalDateTime dataIncepere = LocalDateTime.now();
             LocalDateTime dataExpirare = dataIncepere.plusMonths(1);
@@ -161,12 +156,11 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
-        }
-        else if(type.equals("ShowPass")){
+        } else if (type.equals("ShowPass")) {
             System.out.println("Show Pass request...");
-            try{
+            try {
                 Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());
-                if(abonament == null){
+                if (abonament == null) {
                     System.out.println("No pass found for this client");
                     throw new SrvException("No pass found for this client");
                 }
@@ -176,12 +170,19 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("dataExpirare", abonament.getDataExpirare().toString());
                 response.put("pret", abonament.getPret());
                 response.put("tip", abonament.getTip());
-                byte[] qr=server.getQr(abonament.getId());
-                response.put("qr",qr);
+                byte[] qr = server.getQr(abonament.getId());
+                response.put("qr", qr);
             } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
+        } else if (type.equals("OrarRequest")) {
+            System.out.println("Orar img request...");
+            String linie = request.getString("linie");
+            byte[] img = server.getOrar(linie);
+            response.put("type","OrarResponse");
+            response.put("imagine",img);
+
         }
         return response;
     }

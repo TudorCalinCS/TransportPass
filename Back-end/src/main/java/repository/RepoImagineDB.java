@@ -52,6 +52,24 @@ public class RepoImagineDB {
         }
         logger.traceExit();
     }
+    public byte[] findOrar(String linie) {
+        logger.traceEntry("Find orar with linie: {} ", linie);
+        Connection con = jdbcUtils.getConnection();
+        String sql = "SELECT continut_imagine FROM imagini WHERE linie = ?";
+        try (PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, linie);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                logger.traceExit("imagine gasita");
+                return resultSet.getBytes("continut_imagine");
+            }
+        } catch (SQLException e) {
+            logger.error(e);
+            e.printStackTrace();
+        }
+        logger.traceExit();
+        return null;
+    }
 
 }
 

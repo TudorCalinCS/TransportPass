@@ -76,7 +76,7 @@ message:
 
 # ShowPass:
 Request
-type:SowPass
+type:ShowPass
 
 Response
 type:AbonamentResponse
@@ -88,3 +88,12 @@ qr:byte[]
 ____
 type:ErrorResponse
 message:
+
+# OrarRequest
+Request
+type:OrarRequest
+linie:string
+
+Response
+type:OrarResponse
+imagine:byte[]
