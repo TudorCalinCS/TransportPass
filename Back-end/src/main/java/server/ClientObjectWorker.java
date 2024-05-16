@@ -146,7 +146,6 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("qr"+i,qr);
             }
         }
-//>>>>>>> f9ce205bf8bebe26e0abf5707a61776ac4b6a541
         else if (type.equals("BuyPass")) {
             System.out.println("Buy Pass request...");
             LocalDateTime dataIncepere = LocalDateTime.now();
