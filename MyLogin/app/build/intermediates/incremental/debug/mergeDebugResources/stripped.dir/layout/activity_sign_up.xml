@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SignUpActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="#C9FFFFFF"
+        android:layout_marginBottom="-20dp"> <!-- Correct placement of attributes -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="75dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textColor="@color/my_secondary"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="Please register with your information"
+                android:textStyle="bold|normal"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <!-- First Name -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/firstNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:inputType="text"
+                    android:hint="Enter your first name"
+                    android:textStyle="bold|normal"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/firstnameIconImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/firstNameEditText"
+                    android:src="@drawable/checked_icon" />
+
+            </RelativeLayout>
+
+            <!-- Last Name -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/lastNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Enter your last name"
+                    android:textStyle="bold|normal"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/lastnameIconImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/lastNameEditText"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/checked_icon" />
+
+            </RelativeLayout>
+
+            <!-- Email Address -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="Enter your email address"
+                    android:textStyle="bold|normal"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/emailIconImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/emailEditText"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/baseline_email_24" />
+
+            </RelativeLayout>
+
+            <!-- Mobile Phone -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/mobileEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:hint="Enter your phone number"
+                    android:textStyle="bold|normal"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/mobileIconImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/mobileEditText"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/baseline_phone_iphone_24" />
+
+            </RelativeLayout>
+
+            <!-- Password -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Enter your password"
+                    android:textStyle="bold|normal"
+                    android:textSize="14sp"
+                    android:maxLines="1"/>
+
+                <ImageView
+                    android:id="@+id/passwordIconImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/passwordEditText"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/baseline_key_off_24" />
+
+            </RelativeLayout>
+
+            <!-- Confirm Password -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/confirmPasswordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Confirm your password"
+                    android:textStyle="bold|normal"
+                    android:textSize="14sp"
+                    android:maxLines="1"/>
+
+                <ImageView
+                    android:id="@+id/confirmPasswordIconImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/confirmPasswordEditText"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/baseline_key_off_24" />
+
+            </RelativeLayout>
+
+            <!-- Sign Up Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signUpButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="SIGN UP"
+                android:textColor="@color/my_primary"
+                app:backgroundTint="@color/purple"
+                app:cornerRadius="32dp" />
+
+            <!-- Already have an account? Log in -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/alreadyHaveAccountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already have an account?"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/loginTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/alreadyHaveAccountTextView"
+                    android:layout_marginStart="8dp"
+                    android:text="Log in"
+                    android:textStyle="bold|normal"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
