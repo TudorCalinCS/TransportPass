@@ -1,11 +1,13 @@
 package server;
 
 
+import domain.Client;
 import repository.*;
 
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.LocalDateTime;
 import java.util.Properties;
 
 
@@ -32,7 +34,6 @@ public class StartObjectServer {
         IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB,repoImagineDB);
 
         int chatServerPort = defaultPort;
-
         // Use the predefined server_address
 
         try {

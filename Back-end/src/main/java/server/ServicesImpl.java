@@ -8,8 +8,10 @@ import domain.User;
 import repository.*;
 import utils.QRCodeGenerator;
 
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Random;
 
 import java.util.Map;
@@ -60,7 +62,7 @@ public class ServicesImpl implements IServices {
             return user;
 
             //notifyFriendsLoggedIn(user);
-        } else{
+        } else {
             System.out.println("Authentication failed.");
             throw new SrvException("Authentication failed.");
         }
@@ -82,26 +84,30 @@ public class ServicesImpl implements IServices {
         }
     }
 
-    public synchronized void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, long id) throws SrvException {
+    public Abonament findAbonamentByClientId(Long id) {
+        return repoAbonamentDB.findAbonamentByUser(id);
+    }
+
+    public synchronized List<Bilet> getTicketsByClientId(Long idClient) {
+        return repoBiletDB.findAllByUser(idClient);
+    }
+
+    public byte[] getQr(Long id) {
+        return repoImagineDB.findOne(Math.toIntExact(id));
+    }
+
+    public void buyPass(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Long idClient) throws SrvException {
         try {
-            Client client = repoClientDB.findOne(id);
-            System.out.println("Client: " + client.getId() + " " + client.getNume() + " " + client.getPrenume() + " " + client.getEmail() + " " + client.getParola() + " " + client.getCNP() + " " + client.getStatut());
+            Client client = repoClientDB.findOne(idClient);
             Random random = new Random();
             long randomID = random.nextLong();
             Abonament abonament = new Abonament(randomID, dataIncepere, dataExpirare, pret, tip, client);
             repoAbonamentDB.save(abonament);
-            //Generate QR
             byte[] image = generateQRCode(randomID);
             repoImagineDB.save(String.valueOf(randomID), "abonament", image);
         } catch (SrvException e) {
             throw new SrvException("Buying pass failed.");
         }
-
-    }
-
-
-    public Abonament findAbonamentByClientID(long id) throws SrvException {
-            return repoAbonamentDB.findOneByClientID(id);
     }
 
     private final int defaultThreadsNo = 5;
