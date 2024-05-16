@@ -151,7 +151,7 @@ public class RepoAbonamentDB implements IRepoAbonament {
             }
         }
     }
-    
+
     public Abonament findAbonamentByUser(Long idUser) {
         logger.traceEntry("finding Pass by User's id: {} ", idUser);
         Connection con = jdbcUtils.getConnection();

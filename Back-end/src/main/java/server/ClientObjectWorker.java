@@ -70,6 +70,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
 
     private JSONObject handleRequest(JSONObject request) throws SrvException {
         JSONObject response = new JSONObject();
+        System.out.println("REQUEST ESTE : " + request.toString());
         String type = request.getString("type");
         if (type.equals("CreateClient")) {
             System.out.println("Create Client request...");
@@ -97,7 +98,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 if(currentUser instanceof Client)
                     response.put("type", "ClientResponse");
                 else  response.put("type", "ControlorResponse");
-
+                System.out.println("RESPONSE ESTE : " + response.toString());
 
             } catch (SrvException e) {
                 connected = false;
