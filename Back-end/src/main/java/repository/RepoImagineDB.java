@@ -22,7 +22,7 @@ public class RepoImagineDB {
         logger.traceEntry("Find imagine with id: {} ", id);
         Connection con = jdbcUtils.getConnection();
         String idParinte= String.valueOf(id);
-        String sql = "SELECT continut_imagine FROM imagini WHERE linie = ?";
+        String sql = "SELECT continut_imagine FROM imagini WHERE nume = ?";
         try (PreparedStatement statement = con.prepareStatement(sql)) {
             statement.setString(1, "bilet");
             ResultSet resultSet = statement.executeQuery();
