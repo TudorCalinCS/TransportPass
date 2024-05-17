@@ -22,7 +22,7 @@ public class RepoBiletDB implements IRepoBilet {
     private static final Logger logger = LogManager.getLogger(RepoBiletDB.class);
 
     public RepoBiletDB(Properties properties, IRepoClient repoClient) {
-        logger.info("Initializing RepoBiletDB  with properties: {} ", properties );
+        logger.info("Initializing RepoBiletDB  with properties: {} ", properties);
         this.jdbcUtils = new JdbcUtils(properties);
         this.repoClient = repoClient;
     }
@@ -122,7 +122,7 @@ public class RepoBiletDB implements IRepoBilet {
         try (PreparedStatement preStmt = con.prepareStatement("DELETE FROM Bilet WHERE id = ?")) {
             preStmt.setInt(1, entity.getId());
             int rowsAffected = preStmt.executeUpdate();
-            if(rowsAffected == 0) logger.traceExit("could not delete: {}", entity);
+            if (rowsAffected == 0) logger.traceExit("could not delete: {}", entity);
             else logger.traceExit("deleted bilet: {} ", entity);
         } catch (SQLException ex) {
             System.err.println("Eroare în baza de date: " + ex.getMessage());
@@ -135,13 +135,14 @@ public class RepoBiletDB implements IRepoBilet {
             }
         }
     }
+
     public List<Bilet> findAllByUser(Integer idClient) {
         logger.traceEntry("Finding all bilete");
         Connection con = jdbcUtils.getConnection();
         List<Bilet> tickets = new ArrayList<>();
         try (PreparedStatement statement = con.prepareStatement("select * from Bilet where idClient = ?")) {
+            statement.setInt(1, idClient);
             try (ResultSet result = statement.executeQuery()) {
-                statement.setInt(1,idClient);
                 while (result.next()) {
                     Integer id = result.getInt("id");
                     LocalDateTime dataIncepere = result.getTimestamp("dataIncepere").toLocalDateTime();

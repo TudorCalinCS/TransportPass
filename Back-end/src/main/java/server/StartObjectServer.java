@@ -2,6 +2,7 @@ package server;
 
 
 import domain.Abonament;
+import domain.Bilet;
 import domain.Client;
 import domain.User;
 import repository.*;
@@ -37,7 +38,7 @@ public class StartObjectServer {
 
         int chatServerPort = defaultPort;
 
-        //Test
+
         // Use the predefined server_address
 
         try {
