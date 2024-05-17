@@ -139,9 +139,9 @@ public class RepoBiletDB implements IRepoBilet {
         logger.traceEntry("Finding all bilete");
         Connection con = jdbcUtils.getConnection();
         List<Bilet> tickets = new ArrayList<>();
-        try (PreparedStatement statement = con.prepareStatement("select * from Bilet where idClient = ?")) {
+        try (PreparedStatement statement = con.prepareStatement("select * from Bilet")) {
             try (ResultSet result = statement.executeQuery()) {
-                statement.setInt(1,idClient);
+                //statement.setInt(1,idClient);
                 while (result.next()) {
                     Integer id = result.getInt("id");
                     LocalDateTime dataIncepere = result.getTimestamp("dataIncepere").toLocalDateTime();

@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import java.io.*;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -128,10 +129,12 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("message", e.getMessage());
             }
         } else if (type.equals("GetTickets")) {
+            System.out.println("ID-UL ESTE : " + currentUser.getId());
             System.out.println("Get tickets request...");
             List<Bilet> list = server.getTicketsByClientId(this.currentUser.getId());
+            System.out.println("SIZE : " + list.size());
             response.put("size", list.size());
-            for (int i = 1; i <= list.size(); i++) {
+            for (int i = 0; i < list.size(); i++) {
                 Bilet bilet = list.get(i);
                 response.put("id" + i, bilet.getId());
                 response.put("dataIncepere" + i, bilet.getDataIncepere().toString());
@@ -139,6 +142,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("pret" + i, bilet.getPret());
                 response.put("tip" + i, bilet.getTip());
                 byte[] qr = server.getQr(bilet.getId());
+                System.out.println("QR : " + Arrays.toString(qr));
                 response.put("qr" + i, qr);
             }
         } else if (type.equals("BuyPass")) {
@@ -180,6 +184,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             System.out.println("Orar img request...");
             String linie = request.getString("linie");
             byte[] img = server.getOrar(linie);
+            System.out.println("IMAGINEA ESTE : " + img);
             response.put("type","OrarResponse");
             response.put("imagine",img);
 
