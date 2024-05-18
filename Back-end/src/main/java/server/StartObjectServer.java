@@ -1,10 +1,7 @@
 package server;
 
 
-import domain.Abonament;
-import domain.Bilet;
-import domain.Client;
-import domain.User;
+import domain.*;
 import repository.*;
 
 import java.io.IOException;
@@ -37,7 +34,9 @@ public class StartObjectServer {
         repoAbonamentDB.deleteAbonamente();
         repoBiletDB.deleteBilete();
         IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB,repoImagineDB);
-
+        ////SAVE CONTROLOR
+        Controlor c=new Controlor(1,"Musatoiu","Iulian","musat@yahoo.com","123","5030778899922","CJ1234");
+        repoControlorDB.save(c);
         int chatServerPort = defaultPort;
 
 
