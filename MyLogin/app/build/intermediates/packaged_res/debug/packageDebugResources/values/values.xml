@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bby_blue">#D8EFFA</color>
+    <color name="black">#000000</color>
+    <color name="green">#68D806</color>
+    <color name="grey">#737372</color>
+    <color name="my_primary">#99EFEEF1</color>
+    <color name="my_secondary">#8652EF</color>
+    <color name="purple">#7F46F3</color>
+    <color name="red">#87040F</color>
+    <color name="yellow">#F1F11D</color>
+    <string name="app_name">MyLogin</string>
+    <string name="facebook">Facebook</string>
+    <string name="gcm_defaultSenderId" translatable="false">809322910491</string>
+    <string name="google_api_key" translatable="false">AIzaSyA92MChfsZ1v21KU5ELvZGMPtsIIWtxOZg</string>
+    <string name="google_app_id" translatable="false">1:809322910491:android:141ef56aeac4c8563a79be</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA92MChfsZ1v21KU5ELvZGMPtsIIWtxOZg</string>
+    <string name="google_storage_bucket" translatable="false">mylogin-ecd7a.appspot.com</string>
+    <string name="project_id" translatable="false">mylogin-ecd7a</string>
+    <style name="Base.Theme.MyLogin" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/my_primary</item>
+        <item name="colorPrimaryVariant">@color/my_primary</item>
+
+        <item name="colorSecondary">@color/my_secondary</item>
+        <item name="colorSecondaryVariant">@color/my_secondary</item>
+
+        <item name="android:statusBarColor">@color/my_primary</item>
+    </style>
+    <style name="MyLogin" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/my_primary</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/purple</item>
+    </style>
+    <style name="SplashMainTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/my_primary</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/purple</item>
+    </style>
+    <style name="Theme.MyLogin" parent="Base.Theme.MyLogin"/>
+</resources>

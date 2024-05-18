@@ -2,7 +2,10 @@ package server;
 
 
 import domain.Abonament;
+//<<<<<<< HEAD
+//=======
 import domain.Bilet;
+//>>>>>>> f9ce205bf8bebe26e0abf5707a61776ac4b6a541
 import domain.User;
 
 import java.sql.SQLException;
@@ -29,4 +32,5 @@ public interface IServices {
     byte[] getOrar(String linie);
 
     Boolean alreadyExists(String email,String cnp);
+
 }

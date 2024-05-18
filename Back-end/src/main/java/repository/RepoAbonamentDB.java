@@ -5,6 +5,7 @@ import domain.Bilet;
 import domain.Client;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import server.SrvException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

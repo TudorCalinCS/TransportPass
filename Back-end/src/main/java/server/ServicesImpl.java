@@ -100,6 +100,7 @@ public class ServicesImpl implements IServices {
         try {
             Client client = repoClientDB.findOne(idClient);
             Random random = new Random();
+
             int randomID = random.nextInt();
             Abonament abonament = new Abonament(randomID, dataIncepere, dataExpirare, pret, tip, client);
             repoAbonamentDB.save(abonament);
