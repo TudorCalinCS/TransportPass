@@ -1,10 +1,7 @@
 package server;
 
 
-import domain.Abonament;
-import domain.Bilet;
-import domain.Client;
-import domain.User;
+import domain.*;
 import repository.*;
 import utils.QRCodeGenerator;
 

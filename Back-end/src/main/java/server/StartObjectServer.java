@@ -35,8 +35,8 @@ public class StartObjectServer {
         repoBiletDB.deleteBilete();
         IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB,repoImagineDB);
         ////SAVE CONTROLOR
-        Controlor c=new Controlor(1,"Musatoiu","Iulian","musat@yahoo.com","123","5030778899922","CJ1234");
-        repoControlorDB.save(c);
+//        Controlor c=new Controlor(1,"Musatoiu","Iulian","musat@yahoo.com","123","5030778899922","CJ1234");
+//        repoControlorDB.save(c);
         int chatServerPort = defaultPort;
 
 

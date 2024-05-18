@@ -75,23 +75,25 @@ public class RepoClientDB implements IRepoClient {
         }
 
         Connection con = jdbcUtils.getConnection();
-        try (PreparedStatement statement = con.prepareStatement("SELECT * FROM Client WHERE email = ? AND CNP = ?")) {
+        try (PreparedStatement statement = con.prepareStatement("SELECT * FROM User WHERE email = ? OR CNP = ?")) {
             statement.setString(1, email);
             statement.setString(2, CNP);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                Integer userId = resultSet.getInt("userId");
-                String statut = resultSet.getString("statut");
+                Integer userId = resultSet.getInt("id");
+                //String statut = resultSet.getString("statut");
 
-                RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
-                User user = repoUserDB.findOne(userId);
+//                RepoUserDB repoUserDB = new RepoUserDB(jdbcUtils.getJdbcProps());
+//                 user = repoUserDB.findOne(userId);
+                Client client = findOne(userId);
 
-                if (user != null) {
-                    Client client = new Client(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), statut);
+                if (client != null) {
+                    //Client client = new Client(user.getId(), user.getNume(), user.getPrenume(), user.getEmail(), user.getParola(), user.getCNP(), statut);
                     logger.traceExit(client);
                     return client;
-                } else {
+                }
+                else {
                     logger.traceExit();
                     return null;
                 }
