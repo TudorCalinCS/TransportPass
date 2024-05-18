@@ -115,8 +115,14 @@ public class ServicesImpl implements IServices {
             return true;
         return false;
     }
+    public Boolean alreadyExists(String email,String cnp){
+        if (repoClientDB.findOneByEmailAndCNP(email,cnp) != null)
+            return true;
+        return false;
+    }
 
     public byte[] getOrar(String linie) {
         return repoImagineDB.findOrar(linie);
     }
+
 }

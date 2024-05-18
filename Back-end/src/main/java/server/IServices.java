@@ -27,4 +27,6 @@ public interface IServices {
     Boolean isClient(Integer userId);
 
     byte[] getOrar(String linie);
+
+    Boolean alreadyExists(String email,String cnp);
 }
