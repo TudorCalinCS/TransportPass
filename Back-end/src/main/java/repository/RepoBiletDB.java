@@ -117,13 +117,16 @@ public class RepoBiletDB implements IRepoBilet {
 
     @Override
     public void delete(Bilet entity) {
+    }
+    public void deleteBilete() {
+        logger.traceEntry("deleting bilete: {} ");
         Connection con = jdbcUtils.getConnection();
-        logger.traceEntry("deleting bilet: {} ", entity);
-        try (PreparedStatement preStmt = con.prepareStatement("DELETE FROM Bilet WHERE id = ?")) {
-            preStmt.setInt(1, entity.getId());
+        LocalDateTime today = LocalDateTime.now();
+        try (PreparedStatement preStmt = con.prepareStatement("DELETE FROM Bilet WHERE dataExpirare < ?")) {
+            preStmt.setObject(1, today);
             int rowsAffected = preStmt.executeUpdate();
-            if (rowsAffected == 0) logger.traceExit("could not delete: {}", entity);
-            else logger.traceExit("deleted bilet: {} ", entity);
+            if (rowsAffected == 0) logger.traceExit("could not delete: {}");
+            else logger.traceExit("deleted : {} ");
         } catch (SQLException ex) {
             System.err.println("Eroare în baza de date: " + ex.getMessage());
             logger.error(ex);

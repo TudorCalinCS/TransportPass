@@ -83,8 +83,13 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String CNP = request.getString("CNP");
             String statut = request.getString("statut");
             try {
-                server.createClient(nume, prenume, email, parola, CNP, statut);
-                response.put("type", "OkResponse");
+                if (server.alreadyExists(email,CNP)) {
+                    response.put("type", "ErrorResponse");
+                    response.put("message", "Client already exists.");
+                } else {
+                    server.createClient(nume, prenume, email, parola, CNP, statut);
+                    response.put("type", "OkResponse");
+                }
             } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
@@ -151,16 +156,25 @@ public class ClientObjectWorker implements Runnable, IObserver {
             LocalDateTime dataExpirare = dataIncepere.plusMonths(1);
             Double pret = request.getDouble("pret");
             String tip = request.getString("tip");
+
             try {
                 System.out.println("ID CLIENT: " + this.currentUser.getId());
-                server.buyPass(dataIncepere, dataExpirare, pret, tip, this.currentUser.getId());
-                response.put("type", "OkResponse");
+                Abonament existingAbonament = server.findAbonamentByClientId(this.currentUser.getId());
+                if (existingAbonament != null) {
+                    response.put("type", "ErrorResponse");
+                    response.put("message", "Client already has an active pass.");
+                } else {
+                    server.buyPass(dataIncepere, dataExpirare, pret, tip, this.currentUser.getId());
+                    response.put("type", "OkResponse");
+                }
 
             } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
-        } else if (type.equals("ShowPass")) {
+        }
+
+     else if (type.equals("ShowPass")) {
             System.out.println("Show Pass request...");
             try {
                 Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());

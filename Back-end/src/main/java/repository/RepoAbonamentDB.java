@@ -133,14 +133,18 @@ public class RepoAbonamentDB implements IRepoAbonament {
 
     @Override
     public void delete(Abonament entity) {
-        logger.traceEntry("deleting abonament: {} ", entity);
+
+    }
+
+    public void deleteAbonamente() {
+        logger.traceEntry("deleting abonamente: {} ");
         Connection con = jdbcUtils.getConnection();
         LocalDateTime today = LocalDateTime.now();
         try (PreparedStatement preStmt = con.prepareStatement("DELETE FROM Abonament WHERE dataExpirare < ?")) {
             preStmt.setObject(1, today);
             int rowsAffected = preStmt.executeUpdate();
-            if (rowsAffected == 0) logger.traceExit("could not delete: {}", entity);
-            else logger.traceExit("deleted abonament: {} ", entity);
+            if (rowsAffected == 0) logger.traceExit("could not delete: {}");
+            else logger.traceExit("deleted: {} ");
         } catch (SQLException ex) {
             System.err.println("Eroare în baza de date: " + ex.getMessage());
             logger.error(ex);
