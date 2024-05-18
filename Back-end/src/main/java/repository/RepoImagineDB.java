@@ -24,7 +24,7 @@ public class RepoImagineDB {
         String idParinte= String.valueOf(id);
         String sql = "SELECT continut_imagine FROM imagini WHERE nume = ?";
         try (PreparedStatement statement = con.prepareStatement(sql)) {
-            statement.setString(1, "bilet");
+            statement.setString(1, idParinte);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 logger.traceExit("imagine gasita");
