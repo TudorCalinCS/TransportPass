@@ -217,6 +217,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             response.put("imagine", img);
 
         } else if (type.equals("QRInfo")) {
+            response.put("type","QRInfo");
             System.out.println("Qr Info request...");
             int id = request.getInt("id");
             Abonament abonament = server.findAbonament(id);
