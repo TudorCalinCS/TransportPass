@@ -173,6 +173,23 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("message", e.getMessage());
             }
         }
+        else if (type.equals("VerifyPass")) {
+            System.out.println("Verify Pass request...");
+            try {
+                System.out.println("ID CLIENT: " + this.currentUser.getId());
+                Abonament existingAbonament = server.findAbonamentByClientId(this.currentUser.getId());
+                if (existingAbonament != null) {
+                    response.put("type", "ErrorResponse");
+                    response.put("message", "Client already has an active pass.");
+                } else {
+                    response.put("type", "OkResponse");
+                    response.put("message", "Client hasn't an active pass.");
+                }
+            }catch(Exception e) {
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
+        }
 
      else if (type.equals("ShowPass")) {
             System.out.println("Show Pass request...");
