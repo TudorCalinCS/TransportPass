@@ -83,7 +83,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String CNP = request.getString("CNP");
             String statut = request.getString("statut");
             try {
-                if (server.alreadyExists(email,CNP)) {
+                if (server.alreadyExists(email, CNP)) {
                     response.put("type", "ErrorResponse");
                     response.put("message", "Client already exists.");
                 } else {
@@ -172,8 +172,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
-        }
-        else if (type.equals("VerifyPass")) {
+        } else if (type.equals("VerifyPass")) {
             System.out.println("Verify Pass request...");
             try {
                 System.out.println("ID CLIENT: " + this.currentUser.getId());
@@ -185,13 +184,11 @@ public class ClientObjectWorker implements Runnable, IObserver {
                     response.put("type", "OkResponse");
                     response.put("message", "Client hasn't an active pass.");
                 }
-            }catch(Exception e) {
+            } catch (Exception e) {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
-        }
-
-     else if (type.equals("ShowPass")) {
+        } else if (type.equals("ShowPass")) {
             System.out.println("Show Pass request...");
             try {
                 Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());
@@ -216,9 +213,32 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String linie = request.getString("linie");
             byte[] img = server.getOrar(linie);
             System.out.println("IMAGINEA ESTE : " + img);
-            response.put("type","OrarResponse");
-            response.put("imagine",img);
+            response.put("type", "OrarResponse");
+            response.put("imagine", img);
 
+        } else if (type.equals("QRInfo")) {
+            System.out.println("Qr Info request...");
+            int id = request.getInt("id");
+            Abonament abonament = server.findAbonament(id);
+            String nume;
+            String dataExpirare;
+            String tip;
+            if (abonament != null) {
+                Client client = abonament.getCodClient();
+                nume = client.getNume() + " " + client.getPrenume();
+                dataExpirare = abonament.getDataExpirare().toString();
+                tip = abonament.getTip();
+            }
+            else{
+                Bilet bilet=server.findBilet(id);
+                Client client=bilet.getCodClient();
+                nume = client.getNume() + " " + client.getPrenume();
+                dataExpirare=bilet.getDataExpirare().toString();
+                tip=abonament.getTip();
+            }
+            response.put("nume",nume);
+            response.put("dataExpirare",dataExpirare);
+            response.put("tip",tip);
         }
         return response;
     }

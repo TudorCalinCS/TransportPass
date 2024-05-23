@@ -31,6 +31,10 @@ public interface IServices {
 
     byte[] getOrar(String linie);
 
-    Boolean alreadyExists(String email,String cnp);
+    Boolean alreadyExists(String email, String cnp);
+
+    Abonament findAbonament(int id);
+
+    Bilet findBilet(int id);
 
 }
