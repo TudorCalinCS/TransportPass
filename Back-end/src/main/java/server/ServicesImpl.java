@@ -126,4 +126,11 @@ public class ServicesImpl implements IServices {
         return repoImagineDB.findOrar(linie);
     }
 
+    public Abonament findAbonament(int id){
+        return repoAbonamentDB.findOne(id);
+    }
+    public Bilet findBilet(int id){
+        return repoBiletDB.findOne(id);
+    }
+
 }
