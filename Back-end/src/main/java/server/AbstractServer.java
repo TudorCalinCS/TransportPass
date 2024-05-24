@@ -21,7 +21,7 @@ public abstract class AbstractServer {
 
     public void start() throws ServerException {
         try {
-            this.server = new ServerSocket(this.port,50, InetAddress.getByName("0.0.0.0"));
+            this.server = new ServerSocket(this.port,50, InetAddress.getByName("192.168.221.189"));
 
             while (true) {
                 System.out.println("ADRESA SERVERULUI ESTE : " +server.getInetAddress());

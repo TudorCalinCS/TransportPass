@@ -5,114 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57d2d3b5-0fba-49cb-ba37-8f1a097299a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TransportPass.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0f38646-8239-484c-950f-2ce0794906e4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0f38646-8239-484c-950f-2ce0794906e4/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_beust_jcommander_1_78.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_jai_imageio_jai_imageio_core_1_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_javase_3_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_api_2_14_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_core_2_14_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_json_json_20231013.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_xerial_sqlite_jdbc_3_36_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/core_3_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javase_3_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/json_20231013.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/qrgen_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Server/TransportPass.Server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/TransportPass.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/TransportPass.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/TransportPass.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/repos.TransportPass.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/repos.TransportPass.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/repos.TransportPass.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ALE.db" beforeDir="false" afterPath="$PROJECT_DIR$/ALE.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Abonament.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Abonament.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Bilet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Bilet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Controlor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Controlor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoAbonament.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoAbonament.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoBilet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoBilet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoControlor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoControlor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepoUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/IRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/IRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/JdbcUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/JdbcUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoAbonamentDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoAbonamentDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoBiletDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoBiletDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoClientDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoClientDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoControlorDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoControlorDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoImagineDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoImagineDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoUserDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoUserDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/AbsConcurrentServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/AbsConcurrentServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/AbstractServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/AbstractServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ChatObjectConcurrentServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ChatObjectConcurrentServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ClientObjectWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ClientObjectWorker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/IObserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/IObserver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/IServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/IServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ServerException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ServerException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/ServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/ServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/SrvException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/SrvException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/StartObjectServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/StartObjectServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/utils/OrareGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/utils/OrareGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/utils/QRCodeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/utils/QRCodeGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/TransportPass-1.0-SNAPSHOT.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/TransportPass-1.0-SNAPSHOT.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/TransportPass-1.0-SNAPSHOT.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/TransportPass-1.0-SNAPSHOT.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/TransportPass-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/TransportPass-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/TransportPass" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/TransportPass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/OrareGenerator.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RepoImagineDB.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ServicesImpl.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StartObjectServer.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/AbstractServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AbstractServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ClientObjectWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ClientObjectWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/IServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/IServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/server.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +219,7 @@
       <workItem from="1715888417648" duration="2597000" />
       <workItem from="1715941582320" duration="2537000" />
       <workItem from="1716451254771" duration="360000" />
-      <workItem from="1716451628897" duration="2367000" />
+      <workItem from="1716451628897" duration="3841000" />
     </task>
     <servers />
   </component>
