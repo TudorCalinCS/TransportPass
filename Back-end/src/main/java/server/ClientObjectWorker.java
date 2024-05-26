@@ -4,6 +4,8 @@ import domain.Abonament;
 import domain.Bilet;
 import domain.Client;
 import domain.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,6 +22,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
     private IServices server;
     private Socket connection;
     private volatile boolean connected;
+    static final Logger logger = LogManager.getLogger(ClientObjectWorker.class);
 
     private User currentUser;
 
@@ -36,10 +39,10 @@ public class ClientObjectWorker implements Runnable, IObserver {
             while (connected) {
                 String jsonString = reader.readLine();
                 if (jsonString == null) {
-                    System.out.println("End of stream");
+                    logger.info("End of stream");
                     break;
                 }
-                System.out.println("Received request: " + jsonString);
+                logger.info("Received request: " + jsonString);
                 JSONObject jsonRequest = new JSONObject(jsonString);
                 JSONObject response = handleRequest(jsonRequest);
                 writer.write(response.toString() + "\n");
@@ -64,17 +67,17 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 connection.close();
             } catch (IOException e) {
                 // Log or handle the IOException
-                System.out.println("Error " + e);
+                logger.info("Error " + e);
             }
         }
     }
 
     private JSONObject handleRequest(JSONObject request) throws SrvException {
         JSONObject response = new JSONObject();
-        System.out.println("REQUEST ESTE : " + request.toString());
+        logger.info("REQUEST ESTE : " + request.toString());
         String type = request.getString("type");
         if (type.equals("CreateClient")) {
-            System.out.println("Create Client request...");
+            logger.info("Create Client request...");
             // String nume, String prenume, String email, String parola, String CNP, String statut
             String nume = request.getString("nume");
             String prenume = request.getString("prenume");
@@ -85,7 +88,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             try {
                 if (server.alreadyExists(email, CNP)) {
                     response.put("type", "ErrorResponse");
-                    System.out.println("EROARE LA CREATE CLIENT");
+                    logger.info("EROARE LA CREATE CLIENT");
                     response.put("message", "Client already exists.");
                 } else {
                     server.createClient(nume, prenume, email, parola, CNP, statut);
@@ -97,7 +100,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             }
 
         } else if (type.equals("Login")) {
-            System.out.println("Login request...");
+            logger.info("Login request...");
             String email = request.getString("email");
             String parola = request.getString("parola");
             try {
@@ -108,13 +111,13 @@ public class ClientObjectWorker implements Runnable, IObserver {
 
             } catch (SrvException e) {
                 connected = false;
-                System.out.println("EROARE LA LOGIN CLIENT");
+                logger.info("EROARE LA LOGIN CLIENT");
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
 
         } else if (type.equals("BuyTicket")) {
-            System.out.println("Buy Ticket request...");
+            logger.info("Buy Ticket request...");
             LocalDateTime dataIncepere = LocalDateTime.now();
             LocalDateTime dataExpirare;
             Double pret = request.getDouble("pret");
@@ -126,7 +129,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             else
                 dataExpirare = dataIncepere.plusHours(78);
             try {
-                System.out.println("ID CLIENT: " + this.currentUser.getId());
+                logger.info("ID CLIENT: " + this.currentUser.getId());
                 server.buyTicket(dataIncepere, dataExpirare, pret, tip, this.currentUser.getId());
                 response.put("type", "OkResponse");
 
@@ -135,10 +138,10 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("message", e.getMessage());
             }
         } else if (type.equals("GetTickets")) {
-            System.out.println("ID-UL ESTE : " + currentUser.getId());
-            System.out.println("Get tickets request...");
+            logger.info("ID-UL ESTE : " + currentUser.getId());
+            logger.info("Get tickets request...");
             List<Bilet> list = server.getTicketsByClientId(this.currentUser.getId());
-            System.out.println("SIZE : " + list.size());
+            logger.info("SIZE : " + list.size());
             response.put("size", list.size());
             for (int i = 0; i < list.size(); i++) {
                 Bilet bilet = list.get(i);
@@ -148,18 +151,18 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("pret" + i, bilet.getPret());
                 response.put("tip" + i, bilet.getTip());
                 byte[] qr = server.getQr(bilet.getId());
-                System.out.println("QR : " + Arrays.toString(qr));
+                logger.info("QR : " + Arrays.toString(qr));
                 response.put("qr" + i, qr);
             }
         } else if (type.equals("BuyPass")) {
-            System.out.println("Buy Pass request...");
+            logger.info("Buy Pass request...");
             LocalDateTime dataIncepere = LocalDateTime.now();
             LocalDateTime dataExpirare = dataIncepere.plusMonths(1);
             Double pret = request.getDouble("pret");
             String tip = request.getString("tip");
 
             try {
-                System.out.println("ID CLIENT: " + this.currentUser.getId());
+                logger.info("ID CLIENT: " + this.currentUser.getId());
                 Abonament existingAbonament = server.findAbonamentByClientId(this.currentUser.getId());
                 if (existingAbonament != null) {
                     response.put("type", "ErrorResponse");
@@ -174,9 +177,9 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("message", e.getMessage());
             }
         } else if (type.equals("VerifyPass")) {
-            System.out.println("Verify Pass request...");
+            logger.info("Verify Pass request...");
             try {
-                System.out.println("ID CLIENT: " + this.currentUser.getId());
+                logger.info("ID CLIENT: " + this.currentUser.getId());
                 Abonament existingAbonament = server.findAbonamentByClientId(this.currentUser.getId());
                 if (existingAbonament != null) {
                     response.put("type", "ErrorResponse");
@@ -190,14 +193,14 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("message", e.getMessage());
             }
         } else if (type.equals("ShowPass")) {
-            System.out.println("Show Pass request...");
+            logger.info("Show Pass request...");
             try {
                 Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());
                 if (abonament == null) {
-                    System.out.println("No pass found for this client");
+                    logger.info("No pass found for this client");
                     throw new SrvException("No pass found for this client");
                 }
-                System.out.println("ABONAMENT : " + abonament.getId() + " " + abonament.getDataIncepere() + " " + abonament.getDataExpirare() + " " + abonament.getPret() + " " + abonament.getTip());
+                logger.info("ABONAMENT : " + abonament.getId() + " " + abonament.getDataIncepere() + " " + abonament.getDataExpirare() + " " + abonament.getPret() + " " + abonament.getTip());
                 response.put("type", "AbonamentResponse");
                 response.put("dataIncepere", abonament.getDataIncepere().toString());
                 response.put("dataExpirare", abonament.getDataExpirare().toString());
@@ -210,16 +213,16 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("message", e.getMessage());
             }
         } else if (type.equals("OrarRequest")) {
-            System.out.println("Orar img request...");
+            logger.info("Orar img request...");
             String linie = request.getString("linie");
             byte[] img = server.getOrar(linie);
-            System.out.println("IMAGINEA ESTE : " + img);
+            logger.info("IMAGINEA ESTE : " + img);
             response.put("type", "OrarResponse");
             response.put("imagine", img);
 
         } else if (type.equals("QRInfo")) {
             response.put("type","QRInfo");
-            System.out.println("Qr Info request...");
+            logger.info("Qr Info request...");
             int id = request.getInt("id");
             Abonament abonament = server.findAbonament(id);
             String nume;

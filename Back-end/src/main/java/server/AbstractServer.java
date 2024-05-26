@@ -5,6 +5,9 @@
 
 package server;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -14,6 +17,8 @@ import java.net.UnknownHostException;
 public abstract class AbstractServer {
     private int port;
     private ServerSocket server = null;
+    static final Logger logger = LogManager.getLogger(AbstractServer.class);
+
 
     public AbstractServer(int port) {
         this.port = port;
@@ -21,14 +26,15 @@ public abstract class AbstractServer {
 
     public void start() throws ServerException {
         try {
-            this.server = new ServerSocket(this.port,50, InetAddress.getByName("192.168.221.189"));
+            //this.server = new ServerSocket(this.port,50, InetAddress.getByName("192.168.221.189"));
+            this.server = new ServerSocket(this.port,50, InetAddress.getByName("127.0.0.1"));
 
             while (true) {
-                System.out.println("ADRESA SERVERULUI ESTE : " +server.getInetAddress());
-                System.out.println("PORTUL ESTE : " + port);
-                System.out.println("Waiting for clients ...");
+                logger.info("ADRESA SERVERULUI ESTE : " +server.getInetAddress());
+                logger.info("PORTUL ESTE : " + port);
+                logger.info("Waiting for clients ...");
                 Socket client = this.server.accept();
-                System.out.println("Client connected ...");
+                logger.info("Client connected ...");
                 this.processRequest(client);
             }
         } catch (IOException var5) {
