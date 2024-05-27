@@ -1,10 +1,9 @@
 package server;
 
 
-import domain.Abonament;
-import domain.Bilet;
-import domain.Client;
-import domain.User;
+import domain.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import repository.*;
 import utils.QRCodeGenerator;
 
@@ -31,7 +30,7 @@ public class ServicesImpl implements IServices {
     private Map<String, IObserver> loggedClients;
     private RepoImagineDB repoImagineDB;
 
-
+    static final Logger logger = LogManager.getLogger(AbstractServer.class);
     public ServicesImpl(RepoClientDB repoClientDB, RepoControlorDB repoControlorDB, RepoUserDB repoUserDB, RepoAbonamentDB repoAbonamentDB, RepoBiletDB repoBiletDB, RepoImagineDB repoImagineDB) {
         this.repoClientDB = repoClientDB;
         this.repoControlorDB = repoControlorDB;
@@ -57,12 +56,12 @@ public class ServicesImpl implements IServices {
         User user = repoUserDB.findOneByUsernameAndPassword(email, parola);
         if (user != null) {
             loggedClients.put(user.getId().toString(), client);
-            System.out.println("User logged in: " + user.getId());
+            logger.info("User logged in: " + user.getId());
             return user;
 
             //notifyFriendsLoggedIn(user);
         } else {
-            System.out.println("Authentication failed.");
+            logger.info("Authentication failed.");
             throw new SrvException("Authentication failed.");
         }
     }
@@ -70,14 +69,14 @@ public class ServicesImpl implements IServices {
     public synchronized void buyTicket(LocalDateTime dataIncepere, LocalDateTime dataExpirare, Double pret, String tip, Integer id) throws SrvException {
         try {
             Client client = repoClientDB.findOne(id);
-            //System.out.println("Client: " + client.getId() + " " + client.getNume() + " " + client.getPrenume() + " " + client.getEmail() + " " + client.getParola() + " " + client.getCNP() + " " + client.getStatut());
+            //logger.info("Client: " + client.getId() + " " + client.getNume() + " " + client.getPrenume() + " " + client.getEmail() + " " + client.getParola() + " " + client.getCNP() + " " + client.getStatut());
             Random random = new Random();
             int randomID = random.nextInt();
             Bilet bilet = new Bilet(randomID, dataIncepere, dataExpirare, pret, tip, client);
             repoBiletDB.save(bilet);
             //Generate QR
             byte[] image = generateQRCode(randomID);
-            System.out.println("byte[] " + Arrays.toString(image));
+            logger.info("byte[] " + Arrays.toString(image));
             repoImagineDB.save(String.valueOf(randomID), "bilet", image);
         } catch (SrvException e) {
             throw new SrvException("Buying ticket failed.");

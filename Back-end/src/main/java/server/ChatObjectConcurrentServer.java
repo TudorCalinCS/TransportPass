@@ -9,7 +9,7 @@ public class ChatObjectConcurrentServer extends AbsConcurrentServer {
     public ChatObjectConcurrentServer(int port, IServices chatServer) {
         super(port);
         this.chatServer = chatServer;
-        System.out.println("ObjectConcurrentServer");
+        logger.info("ObjectConcurrentServer");
     }
 
     @Override

@@ -2,6 +2,8 @@ package server;
 
 
 import domain.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import repository.*;
 
 import java.io.IOException;
@@ -13,15 +15,17 @@ import java.util.Properties;
 
 public class StartObjectServer {
     private static int defaultPort = 55555;
+    private static final Logger logger = LogManager.getLogger(StartObjectServer.class);
 
     public static void main(String[] args) throws SrvException {
+        logger.traceEntry();
         Properties serverProps = new Properties();
         try {
             serverProps.load(StartObjectServer.class.getResourceAsStream("/server.properties"));
-            System.out.println("Server properties set. ");
+            logger.info("Server properties set.");
             serverProps.list(System.out);
         } catch (IOException e) {
-            System.err.println("Cannot find chatserver.properties " + e);
+            logger.error("Cannot find chatserver.properties " + e);
             return;
         }
         RepoUserDB repoUserDB = new RepoUserDB(serverProps);
@@ -29,32 +33,27 @@ public class StartObjectServer {
         RepoBiletDB repoBiletDB = new RepoBiletDB(serverProps, repoClientDB);
         RepoAbonamentDB repoAbonamentDB = new RepoAbonamentDB(serverProps, repoClientDB);
         RepoControlorDB repoControlorDB = new RepoControlorDB(serverProps);
-        RepoImagineDB repoImagineDB=new RepoImagineDB(serverProps);
-
+        RepoImagineDB repoImagineDB = new RepoImagineDB(serverProps);
         repoAbonamentDB.deleteAbonamente();
         repoBiletDB.deleteBilete();
-        IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB,repoImagineDB);
-        ////SAVE CONTROLOR
-        Controlor c=new Controlor(1,"Musatoiu","Iulian","musat@yahoo.com","123","5030778899922","CJ1234");
-        repoControlorDB.save(c);
+        IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB, repoImagineDB);
+
+
         int chatServerPort = defaultPort;
-
-
-        // Use the predefined server_address
 
         try {
             chatServerPort = Integer.parseInt(serverProps.getProperty("chat.server.port"));
         } catch (NumberFormatException nef) {
-            System.err.println("Wrong  Port Number" + nef.getMessage());
-            System.err.println("Using default port " + defaultPort);
+            logger.error("Wrong  Port Number" + nef.getMessage());
+            logger.info("Using default port " + defaultPort);
         }
-        System.out.println("Starting server on port: " + chatServerPort);
+        logger.info("Starting server on port: " + chatServerPort);
         AbstractServer server = new ChatObjectConcurrentServer(chatServerPort, chatServerImpl);
         try {
             server.start();
 
         } catch (ServerException e) {
-            System.err.println("Error starting the server" + e.getMessage());
+            logger.error("Error starting the server" + e.getMessage());
         }
     }
 }

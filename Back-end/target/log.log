@@ -1,0 +1,42 @@
+26 May 2024 12:32:28,242 TRACE server.StartObjectServer 20 main - Enter
+26 May 2024 12:32:28,250 INFO  repository.RepoUserDB 25 <init> - Initializing RepoUserDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:32:28,252 INFO  repository.RepoClientDB 28 <init> - Initializing RepoClientDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:32:28,254 INFO  repository.RepoBiletDB 25 <init> - Initializing RepoBiletDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:32:28,255 INFO  repository.RepoAbonamentDB 27 <init> - Initializing RepoAbonamentDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:32:28,257 INFO  repository.RepoControlorDB 23 <init> - Initializing RepoControlorDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:32:28,258 INFO  repository.RepoImagineDB 18 <init> - Initializing RepoImagineDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:32:28,258 TRACE repository.RepoAbonamentDB 140 deleteAbonamente - Enter deleting abonamente: {} 
+26 May 2024 12:32:28,488 TRACE repository.RepoAbonamentDB 146 deleteAbonamente - Exit with(could not delete: {})
+26 May 2024 12:32:28,488 TRACE repository.RepoBiletDB 122 deleteBilete - Enter deleting bilete: {} 
+26 May 2024 12:32:28,490 TRACE repository.RepoBiletDB 128 deleteBilete - Exit with(could not delete: {})
+26 May 2024 12:37:41,842 TRACE server.StartObjectServer 21 main - Enter
+26 May 2024 12:37:41,847 INFO  server.StartObjectServer 25 main - Server properties set.
+26 May 2024 12:37:41,851 INFO  repository.RepoUserDB 25 <init> - Initializing RepoUserDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:37:41,853 INFO  repository.RepoClientDB 28 <init> - Initializing RepoClientDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:37:41,854 INFO  repository.RepoBiletDB 25 <init> - Initializing RepoBiletDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:37:41,856 INFO  repository.RepoAbonamentDB 27 <init> - Initializing RepoAbonamentDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:37:41,857 INFO  repository.RepoControlorDB 23 <init> - Initializing RepoControlorDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:37:41,858 INFO  repository.RepoImagineDB 18 <init> - Initializing RepoImagineDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:37:41,858 TRACE repository.RepoAbonamentDB 140 deleteAbonamente - Enter deleting abonamente: {} 
+26 May 2024 12:37:42,040 TRACE repository.RepoAbonamentDB 146 deleteAbonamente - Exit with(could not delete: {})
+26 May 2024 12:37:42,040 TRACE repository.RepoBiletDB 122 deleteBilete - Enter deleting bilete: {} 
+26 May 2024 12:37:42,041 TRACE repository.RepoBiletDB 128 deleteBilete - Exit with(could not delete: {})
+26 May 2024 12:37:42,043 INFO  server.StartObjectServer 49 main - Starting server on port: 34520
+26 May 2024 12:43:00,930 TRACE server.StartObjectServer 21 main - Enter
+26 May 2024 12:43:00,934 INFO  server.StartObjectServer 25 main - Server properties set.
+26 May 2024 12:43:00,941 INFO  repository.RepoUserDB 25 <init> - Initializing RepoUserDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:43:00,943 INFO  repository.RepoClientDB 28 <init> - Initializing RepoClientDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:43:00,945 INFO  repository.RepoBiletDB 25 <init> - Initializing RepoBiletDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:43:00,946 INFO  repository.RepoAbonamentDB 27 <init> - Initializing RepoAbonamentDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:43:00,948 INFO  repository.RepoControlorDB 23 <init> - Initializing RepoControlorDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:43:00,949 INFO  repository.RepoImagineDB 18 <init> - Initializing RepoImagineDB  with properties: {//jdbc.url=jdbc:sqlite:C:\Users\Tudor\TransportPass\Back-end\ALE.db, chat.jdbc.driver=org.sqlite.JDBC, chat.server.port=34520, chat.server.host=localhost, jdbc.url=jdbc:sqlite:C:\Users\panza\TransportPass\Back-end\ALE.db} 
+26 May 2024 12:43:00,950 TRACE repository.RepoAbonamentDB 140 deleteAbonamente - Enter deleting abonamente: {} 
+26 May 2024 12:43:01,133 TRACE repository.RepoAbonamentDB 146 deleteAbonamente - Exit with(could not delete: {})
+26 May 2024 12:43:01,133 TRACE repository.RepoBiletDB 122 deleteBilete - Enter deleting bilete: {} 
+26 May 2024 12:43:01,135 TRACE repository.RepoBiletDB 128 deleteBilete - Exit with(could not delete: {})
+26 May 2024 12:43:01,136 INFO  server.StartObjectServer 50 main - Starting server on port: 34520
+26 May 2024 12:43:01,137 INFO  server.AbsConcurrentServer 13 <init> - Concurrent AbstractServer
+26 May 2024 12:43:01,137 INFO  server.ChatObjectConcurrentServer 12 <init> - ObjectConcurrentServer
+26 May 2024 12:43:01,142 INFO  server.AbstractServer 33 start - ADRESA SERVERULUI ESTE : /127.0.0.1
+26 May 2024 12:43:01,143 INFO  server.AbstractServer 34 start - PORTUL ESTE : 34520
+26 May 2024 12:43:01,143 INFO  server.AbstractServer 35 start - Waiting for clients ...
