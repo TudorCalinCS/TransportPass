@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="57d2d3b5-0fba-49cb-ba37-8f1a097299a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ClientObjectWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ClientObjectWorker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +69,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "corretto-20",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Tudor/TransportPass/Back-end",
+    "last_opened_file_path": "C:/Users/Tudor/CS-UBB/Year02/2nd semester/MPP/Lab/mpp-proiect-java-AlexandruPaul21/JavaRest",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -219,7 +218,8 @@
       <workItem from="1715888417648" duration="2597000" />
       <workItem from="1715941582320" duration="2537000" />
       <workItem from="1716451254771" duration="360000" />
-      <workItem from="1716451628897" duration="3841000" />
+      <workItem from="1716451628897" duration="4542000" />
+      <workItem from="1716553614466" duration="64000" />
     </task>
     <servers />
   </component>
