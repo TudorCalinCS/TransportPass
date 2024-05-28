@@ -36,5 +36,7 @@ public interface IServices {
     Abonament findAbonament(int id);
 
     Bilet findBilet(int id);
+    public void updatePassword(Integer id, String newPassword);
+    public void updateAbonament(Abonament abonament);
 
 }

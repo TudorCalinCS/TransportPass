@@ -132,4 +132,17 @@ public class ServicesImpl implements IServices {
         return repoBiletDB.findOne(id);
     }
 
+    public void updatePassword(Integer id, String newPassword) {
+        User user = repoUserDB.findOne(id);
+        if (user != null) {
+            user.setParola(newPassword);
+            repoUserDB.update(user);
+        } else {
+            throw new RuntimeException("User not found with id: " + id);
+        }
+    }
+    public void updateAbonament(Abonament abonament) {
+        repoAbonamentDB.update(abonament);
+    }
+
 }
