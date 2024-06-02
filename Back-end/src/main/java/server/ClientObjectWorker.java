@@ -23,7 +23,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
     private Socket connection;
     private volatile boolean connected;
     static final Logger logger = LogManager.getLogger(ClientObjectWorker.class);
-
+    private boolean isStudent;
     private User currentUser;
 
     public ClientObjectWorker(IServices server, Socket connection) {
@@ -105,9 +105,11 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String parola = request.getString("parola");
             try {
                 this.currentUser = server.login(email, parola, this);
-                if (server.isClient(currentUser.getId()))
+                if (server.isClient(currentUser.getId())) {
+                    if (isStudent)
+                        response.put("type", "StudentResponse");
                     response.put("type", "ClientResponse");
-                else response.put("type", "ControlorResponse");
+                } else response.put("type", "ControlorResponse");
 
             } catch (SrvException e) {
                 connected = false;
@@ -129,7 +131,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             }
 
 
-    } else if (type.equals("BuyTicket")) {
+        } else if (type.equals("BuyTicket")) {
             logger.info("Buy Ticket request...");
             LocalDateTime dataIncepere = LocalDateTime.now();
             LocalDateTime dataExpirare;
@@ -225,7 +227,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
-        }else if (type.equals("UpdateAbonament")) {
+        } else if (type.equals("UpdateAbonament")) {
             logger.info("UpdateAbonament request...");
             try {
                 Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());
@@ -270,9 +272,10 @@ public class ClientObjectWorker implements Runnable, IObserver {
             response.put("tip", tip);
         } else if (type.equals("VerificareStudent")) {
             byte[] img = (byte[]) request.get("imagine");
-            if (server.checkStudent(img))
+            if (server.checkStudent(img)) {
                 response.put("type", "OkResponse");
-            else response.put("type", "ErrorResponse");
+                isStudent = true;
+            } else response.put("type", "ErrorResponse");
 
         }
         return response;

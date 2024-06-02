@@ -39,7 +39,7 @@ public class StartObjectServer {
         repoBiletDB.deleteBilete();
         IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB, repoImagineDB);
 
-        chatServerImpl.checkStudent(HttpClientExample.getImageData());
+        //chatServerImpl.checkStudent(HttpClientExample.getImageData());
 
         int chatServerPort = defaultPort;
 
