@@ -22,11 +22,11 @@ public class OrareGenerator {
             return;
         }
         RepoImagineDB repoImagineDB = new RepoImagineDB(serverProps);
-        String imagePath = "C:\\Users\\ALEXANDRA\\Desktop\\MPP\\TransportPass\\Back-end\\src\\main\\resources\\102L.jpeg";
+        String imagePath = "C:\\Users\\ALEXANDRA\\Desktop\\MPP\\TransportPass\\Back-end\\src\\main\\resources\\81.jpeg";
 
         byte[] continutImagine = citesteImagine(imagePath);
         if (continutImagine != null) {
-            repoImagineDB.save("ORAR", "102L", continutImagine);
+            repoImagineDB.save("ORAR", "M81", continutImagine);
         }
     }
     public static byte[] citesteImagine(String caleImagine) {

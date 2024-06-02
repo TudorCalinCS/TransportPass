@@ -115,8 +115,21 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
+        } else if (type.equals("UpdatePassword")) {
+            logger.info("UpdatePassword request...");
+            String newpass = request.getString("newpass");
+            try {
+                server.updatePassword(currentUser.getId(), newpass);
+                response.put("type", "OkResponse");
+                response.put("message", "Password updated successfully");
+            } catch (RuntimeException e) {
+                logger.info("Error updating password: {}", e.getMessage());
+                response.put("type", "ErrorResponse");
+                response.put("message", e.getMessage());
+            }
 
-        } else if (type.equals("BuyTicket")) {
+
+    } else if (type.equals("BuyTicket")) {
             logger.info("Buy Ticket request...");
             LocalDateTime dataIncepere = LocalDateTime.now();
             LocalDateTime dataExpirare;
@@ -211,6 +224,18 @@ public class ClientObjectWorker implements Runnable, IObserver {
             } catch (SrvException e) {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
+            }
+        }else if (type.equals("UpdateAbonament")) {
+            logger.info("UpdateAbonament request...");
+            try {
+                Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());
+                server.updateAbonament(abonament);
+                response.put("type", "OkResponse");
+                response.put("message", "Abonament updated successfully");
+            } catch (Exception e) {
+                logger.info("Error updating abonament: {}", e.getMessage());
+                response.put("type", "ErrorResponse");
+                response.put("message", "Error updating abonament: " + e.getMessage());
             }
         } else if (type.equals("OrarRequest")) {
             logger.info("Orar img request...");

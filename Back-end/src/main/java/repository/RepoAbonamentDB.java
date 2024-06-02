@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -116,20 +117,27 @@ public class RepoAbonamentDB implements IRepoAbonament {
     public void update(Abonament entity) {
         logger.traceEntry("updating abonament: {} ", entity);
         Connection con = jdbcUtils.getConnection();
-        try (PreparedStatement prepStatement = con.prepareStatement("update Bilet set dataIncepere=?, dataExpirare=? where id=?")) {
-            prepStatement.setString(1, entity.getDataIncepere().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            prepStatement.setString(2, entity.getDataExpirare().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        try (PreparedStatement prepStatement = con.prepareStatement("UPDATE Abonament SET dataIncepere=?, dataExpirare=? WHERE id=?")) {
+            LocalDateTime newStartDate = entity.getDataIncepere().plusMonths(1);
+            LocalDateTime newEndDate = entity.getDataExpirare().plusMonths(1);
+            prepStatement.setString(1, newStartDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            prepStatement.setString(2, newEndDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
             prepStatement.setDouble(3, entity.getPret());
             prepStatement.setString(4, entity.getTip());
             prepStatement.setLong(5, entity.getCodClient().getId());
+
             int result = prepStatement.executeUpdate();
-            if (result == 0) logger.traceExit("could not update abonament: {}", entity);
-            else logger.traceExit("updated abonament: {} ", entity);
+            if (result == 0) {
+                logger.traceExit("could not update abonament: {}", entity);
+            } else {
+                logger.traceExit("updated abonament: {} ", entity);
+            }
         } catch (SQLException ex) {
             logger.error(ex);
             System.err.println("Error DB" + ex);
         }
     }
+
 
     @Override
     public void delete(Abonament entity) {

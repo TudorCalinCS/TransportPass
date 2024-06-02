@@ -142,6 +142,7 @@ public class ServicesImpl implements IServices {
         return repoBiletDB.findOne(id);
     }
 
+
     public boolean checkStudent(byte[] imageData) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost("http://localhost:5000/process_image");
@@ -158,7 +159,7 @@ public class ServicesImpl implements IServices {
             if (responseEntity != null) {
                 String result = EntityUtils.toString(responseEntity);
                 System.out.println("Python Server response: " + result);
-                if(Objects.equals(result, "Student"))
+                if (Objects.equals(result, "Student"))
                     return true;
 
             }
@@ -166,6 +167,19 @@ public class ServicesImpl implements IServices {
             e.printStackTrace();
         }
         return false;
+    }
+    public void updatePassword(Integer id, String newPassword) {
+        User user = repoUserDB.findOne(id);
+        if (user != null) {
+            user.setParola(newPassword);
+            repoUserDB.update(user);
+        } else {
+            throw new RuntimeException("User not found with id: " + id);
+        }
+    }
+    public void updateAbonament(Abonament abonament) {
+        repoAbonamentDB.update(abonament);
+
     }
 
 }
