@@ -10,15 +10,25 @@ import utils.QRCodeGenerator;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static utils.QRCodeGenerator.generateQRCode;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ByteArrayBody;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class ServicesImpl implements IServices {
 
@@ -130,6 +140,32 @@ public class ServicesImpl implements IServices {
     }
     public Bilet findBilet(int id){
         return repoBiletDB.findOne(id);
+    }
+
+    public boolean checkStudent(byte[] imageData) {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost("http://localhost:5000/process_image");
+
+        ByteArrayBody byteArrayBody = new ByteArrayBody(imageData, ContentType.DEFAULT_BINARY, "image.jpg");
+
+        HttpEntity reqEntity = MultipartEntityBuilder.create()
+                .addPart("file", byteArrayBody)
+                .build();
+        httpPost.setEntity(reqEntity);
+
+        try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+            HttpEntity responseEntity = response.getEntity();
+            if (responseEntity != null) {
+                String result = EntityUtils.toString(responseEntity);
+                System.out.println("Python Server response: " + result);
+                if(Objects.equals(result, "Student"))
+                    return true;
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }

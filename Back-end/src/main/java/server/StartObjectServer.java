@@ -5,6 +5,7 @@ import domain.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import repository.*;
+import utils.HttpClientExample;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -17,7 +18,7 @@ public class StartObjectServer {
     private static int defaultPort = 55555;
     private static final Logger logger = LogManager.getLogger(StartObjectServer.class);
 
-    public static void main(String[] args) throws SrvException {
+    public static void main(String[] args) throws SrvException, IOException {
         logger.traceEntry();
         Properties serverProps = new Properties();
         try {
@@ -38,6 +39,7 @@ public class StartObjectServer {
         repoBiletDB.deleteBilete();
         IServices chatServerImpl = new ServicesImpl(repoClientDB, repoControlorDB, repoUserDB, repoAbonamentDB, repoBiletDB, repoImagineDB);
 
+        chatServerImpl.checkStudent(HttpClientExample.getImageData());
 
         int chatServerPort = defaultPort;
 
@@ -56,4 +58,5 @@ public class StartObjectServer {
             logger.error("Error starting the server" + e.getMessage());
         }
     }
+
 }

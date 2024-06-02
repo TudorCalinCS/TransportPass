@@ -36,5 +36,6 @@ public interface IServices {
     Abonament findAbonament(int id);
 
     Bilet findBilet(int id);
+    boolean checkStudent(byte[] imageData);
 
 }

@@ -221,7 +221,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             response.put("imagine", img);
 
         } else if (type.equals("QRInfo")) {
-            response.put("type","QRInfo");
+            response.put("type", "QRInfo");
             logger.info("Qr Info request...");
             int id = request.getInt("id");
             Abonament abonament = server.findAbonament(id);
@@ -233,19 +233,25 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 nume = client.getNume() + " " + client.getPrenume();
                 dataExpirare = abonament.getDataExpirare().toString();
                 tip = abonament.getTip();
-            }
-            else{
-                Bilet bilet=server.findBilet(id);
-                Client client=bilet.getCodClient();
+            } else {
+                Bilet bilet = server.findBilet(id);
+                Client client = bilet.getCodClient();
                 nume = client.getNume() + " " + client.getPrenume();
-                dataExpirare=bilet.getDataExpirare().toString();
-                tip=bilet.getTip();
+                dataExpirare = bilet.getDataExpirare().toString();
+                tip = bilet.getTip();
             }
-            response.put("nume",nume);
-            response.put("dataExpirare",dataExpirare);
-            response.put("tip",tip);
+            response.put("nume", nume);
+            response.put("dataExpirare", dataExpirare);
+            response.put("tip", tip);
+        } else if (type.equals("VerificareStudent")) {
+            byte[] img = (byte[]) request.get("imagine");
+            if (server.checkStudent(img))
+                response.put("type", "OkResponse");
+            else response.put("type", "ErrorResponse");
+
         }
         return response;
     }
+
 }
 

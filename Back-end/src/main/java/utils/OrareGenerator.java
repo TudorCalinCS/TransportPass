@@ -29,7 +29,7 @@ public class OrareGenerator {
             repoImagineDB.save("ORAR", "102L", continutImagine);
         }
     }
-    private static byte[] citesteImagine(String caleImagine) {
+    public static byte[] citesteImagine(String caleImagine) {
         FileInputStream fis = null;
         ByteArrayOutputStream bos = null;
 
