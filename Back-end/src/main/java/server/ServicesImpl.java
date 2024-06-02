@@ -142,7 +142,6 @@ public class ServicesImpl implements IServices {
         return repoBiletDB.findOne(id);
     }
 
-
     public boolean checkStudent(byte[] imageData) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost("http://localhost:5000/process_image");
