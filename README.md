@@ -21,6 +21,7 @@ Transport Pass is an Android application designed to streamline the process of m
 
 4. **Payment Options**
    - Payment method for purchasing and renewing tickets and subscriptions.
+   - If the user is a student, pupil or pensioner, he benefits of free tickets and subscriptions.
 
 5. **Notifications**
    - Get alerts for events such as "Green Friday" where tickets are available for free.
