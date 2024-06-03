@@ -23,7 +23,7 @@ Transport Pass is an Android application designed to streamline the process of m
    - Payment method for purchasing and renewing tickets and subscriptions.
 
 5. **Notifications**
-   - Receive notifications for events like "Green Friday" when you can't buy tickets.
+   - Get alerts for events such as "Green Friday" where tickets are available for free.
    - Get reminders for ticket renewal before expiration.
 
 6. **Bus Schedule**
