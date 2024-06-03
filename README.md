@@ -1,5 +1,4 @@
-# Transport Pass ![WhatsApp Image 2024-06-03 at 17 44 44](https://github.com/TudorCalinCS/TransportPass/assets/161611731/a302031c-ae0f-4f9d-a7b4-1a46a9bbf93f)
-
+# Transport Pass 
 
 ## Overview
 
