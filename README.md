@@ -52,3 +52,13 @@ Transport Pass is an Android application designed to streamline the process of m
 
 3. **Database**
    - Relational database SQLite used for storing user data, subscriptions, tickets, and images.
+  
+   ## Screenshots
+
+<p float="left">
+  <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/4cbc22ba-1d77-4c3d-b569-00967ab8aae8?raw=true" alt="Screenshot 1" width="200" />
+  <img src="https://github.com/username/repository-name/blob/main/path/to/screenshot2.png?raw=true" alt="Screenshot 2" width="200" />
+  <img src="https://github.com/username/repository-name/blob/main/path/to/screenshot3.png?raw=true" alt="Screenshot 3" width="200" />
+  <img src="https://github.com/username/repository-name/blob/main/path/to/screenshot4.png?raw=true" alt="Screenshot 4" width="200" />
+</p>
+
