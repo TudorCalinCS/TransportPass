@@ -80,7 +80,7 @@ Transport Pass is an Android application designed to streamline the process of m
   <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/5263bacb-558d-4103-aad3-faa42095544f?raw=true" alt="Screenshot 22" width="200" />
   <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/5a997a39-c293-4d2a-9b52-20c4489b603f?raw=true" alt="Screenshot 23" width="200" />
   <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/aba745cd-2683-48c0-aef4-e2139283ae58?raw=true" alt="Screenshot 24" width="200" />
-  <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/f9811017-a516-4446-4ad-15764e0b0337?raw=true" alt="Screenshot 25" width="200" />
+  <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/f9811017-a516-4446-a4ad-15764e0b0337?raw=true" alt="Screenshot 25" width="200" />
 <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/4d9aebb2-f959-4ef1-8032-00ae3e46b5fd?raw=true" alt="Screenshot 26" width="200" />
 <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/c7ffb6dc-ab9f-4d46-b2f6-bb16891cd9c5?raw=true" alt="Screenshot 27" width="200" />
 <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/9c5d34b7-ca4c-46d1-90c8-2666e6e9323c?raw=true" alt="Screenshot 28" width="200" />
