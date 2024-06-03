@@ -46,8 +46,8 @@ Transport Pass is an Android application designed to streamline the process of m
    - Intuitive and user-friendly design for both users and controllers.
 
 2. **Backend and Application Logic**
-   - Backend developed using Java for managing application logic and database communication.
-   - Python script for Optical Character Recognition (OCR) to verify student IDs.
+   - Backend managed using Java, utilizing ServerSocket for handling application logic and database communication.
+   - Python script integrated with an HTTP client to perform Optical Character Recognition (OCR) for verifying student IDs. The client sends photos to the Python server, which functions as a web service, via POST requests.
 
 3. **Database**
    - Relational database SQLite used for storing user data, subscriptions, tickets, and images.
