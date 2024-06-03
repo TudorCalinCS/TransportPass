@@ -57,8 +57,22 @@ Transport Pass is an Android application designed to streamline the process of m
 
 <p float="left">
   <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/4cbc22ba-1d77-4c3d-b569-00967ab8aae8?raw=true" alt="Screenshot 1" width="200" />
-  <img src="https://github.com/username/repository-name/blob/main/path/to/screenshot2.png?raw=true" alt="Screenshot 2" width="200" />
-  <img src="https://github.com/username/repository-name/blob/main/path/to/screenshot3.png?raw=true" alt="Screenshot 3" width="200" />
-  <img src="https://github.com/username/repository-name/blob/main/path/to/screenshot4.png?raw=true" alt="Screenshot 4" width="200" />
+  <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/5ef5b09b-afb8-407f-b382-7dd0c4a10baf?raw=true" alt="Screenshot 2" width="200" />
+  <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/7d127556-dbb2-44af-a038-eb07e3cb09ac?raw=true" alt="Screenshot 3" width="200" />
+  <img src="https://github.com/TudorCalinCS/TransportPass/assets/161611731/5db0861b-1183-4c65-aec6-7ee26063d2f2?raw=true" alt="Screenshot 4" width="200" />
 </p>
+
+![WhatsApp Image 2024-06-03 at 17 50 05 (3)](https://github.com/TudorCalinCS/TransportPass/assets/161611731/42eb6df5-1285-4e19-9a3d-1a9388c5cb42)
+![WhatsApp Image 2024-06-03 at 17 50 05 (4)](https://github.com/TudorCalinCS/TransportPass/assets/161611731/4ee10215-d6d0-40c1-a954-2914fe16ab61)
+![WhatsApp Image 2024-06-03 at 17 50 05](https://github.com/TudorCalinCS/TransportPass/assets/161611731/d5f5fb16-b2e1-48d3-9b5c-85902667d436)
+![WhatsApp Image 2024-06-03 at 17 50 06 (1)](https://github.com/TudorCalinCS/TransportPass/assets/161611731/402a15ee-940d-443c-b6d5-f1f655dd2e3f)
+![WhatsApp Image 2024-06-03 at 17 50 06 (2)](https://github.com/TudorCalinCS/TransportPass/assets/161611731/b2a482f3-0afc-4aab-ae79-5572d1a3a573)
+
+
+
+
+
+
+
+
 
