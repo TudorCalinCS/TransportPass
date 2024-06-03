@@ -38,7 +38,7 @@ Transport Pass is an Android application designed to streamline the process of m
 2. **Real-time Subscription Information**
    - Access real-time information about user subscriptions.
 
-## Proposed Architecture
+## Architecture
 
 ### Main Components
 
