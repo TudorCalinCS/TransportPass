@@ -1,0 +1,314 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6e6e6"
+    tools:context=".Payment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="485dp"
+        android:orientation="vertical"
+        android:background="@drawable/popup_background"
+        android:layout_margin="10dp"/>
+
+
+    <ImageButton
+        android:id="@+id/closeButtonPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_close_24"
+        android:contentDescription="Back" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="190dp"/>
+
+    <ImageView
+        android:id="@+id/imageVisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/visa2"
+        android:layout_marginTop="64dp"
+        android:layout_marginStart="170dp"
+        android:contentDescription="Access Denied" />
+
+    <ImageView
+        android:id="@+id/imageMastercard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mastercard2"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="74dp"
+        android:contentDescription="Access Denied" />
+
+    <ImageView
+        android:id="@+id/imageMaestro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/maestro1"
+        android:layout_marginTop="74dp"
+        android:layout_marginStart="290dp"
+        android:contentDescription="Access Denied" />
+
+
+    <TextView
+        android:id="@+id/confirmationNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greenn"
+        android:textStyle="bold"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="120dp"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/errorconfirmationNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/redd2"
+        android:textStyle="bold"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="120dp"
+        android:visibility="gone" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/androidNameCard"
+        android:layout_width="315dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="25dp"
+        android:layout_below="@id/textTitle"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxBackgroundMode="none"
+        android:background="@drawable/rounded_edittext_bg">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/NameOnCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Enter your name"
+                android:textColorHint="@android:color/black"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="10dp"
+                android:textSize="14sp"
+                android:padding="8dp" />
+
+            <ImageView
+                android:id="@+id/emailIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/NameOnCard"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/checked_icon" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <TextView
+        android:id="@+id/confirmationNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greenn"
+        android:textStyle="bold"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="202dp"
+        android:visibility="gone" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/androidNumberCard"
+        android:layout_width="315dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="25dp"
+        android:layout_below="@id/androidNameCard"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxBackgroundMode="none"
+        android:background="@drawable/rounded_edittext_bg">
+
+        <!-- Use a RelativeLayout to position EditText and ImageView -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/NumberOnCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Ex: 1234 1234 1234 1234 "
+                android:textColorHint="@android:color/black"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="10dp"
+                android:textSize="14sp"
+                android:padding="8dp" />
+
+            <ImageView
+                android:id="@+id/cardIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/NumberOnCard"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/creditcard38" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/confirmationDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greenn"
+        android:textStyle="bold"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="284dp"
+        android:visibility="gone" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/androidDateCard"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="25dp"
+        android:layout_below="@id/androidNumberCard"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxBackgroundMode="none"
+        android:background="@drawable/rounded_edittext_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/DateOnCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="MM/YYYY"
+                android:textColorHint="@android:color/black"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="10dp"
+                android:textSize="14sp"
+                android:maxLength="7"
+                android:padding="8dp" />
+
+            <ImageView
+                android:id="@+id/dateIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="97dp"
+                android:src="@drawable/datecard" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/confirmationCvvTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greenn"
+        android:textStyle="bold"
+        android:layout_marginStart="198dp"
+        android:layout_marginTop="284dp"
+        android:visibility="gone" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/androidCvvCard"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="190.1dp"
+        android:layout_below="@id/androidNumberCard"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxBackgroundMode="none"
+        android:background="@drawable/rounded_edittext_bg">
+
+        <!-- Use a RelativeLayout to position EditText and ImageView -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/CvvOnCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="CVV"
+                android:textColorHint="@android:color/black"
+                android:textColor="@android:color/black"
+                android:layout_marginEnd="10dp"
+                android:maxLines="3"
+                android:textSize="14sp"
+                android:padding="8dp" />
+
+            <ImageView
+                android:id="@+id/CvvIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/CvvOnCard"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/cvv38" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/TotalPayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/androidCvvCard"
+        android:text="Total to pay: xxx.xx RON"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="135dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:id="@+id/PayButtonPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PAY"
+            android:textColor="@android:color/black"
+            android:backgroundTint="@color/bby_blue1"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

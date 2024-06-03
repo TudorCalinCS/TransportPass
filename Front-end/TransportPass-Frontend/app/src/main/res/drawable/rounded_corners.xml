@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- rounded_corners.xml -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Set the background color -->
+    <solid android:color="@android:color/transparent" /> <!-- Replace "#FF4081" with your desired color code -->
+
+    <!-- Define corner radius for rounded corners -->
+    <corners android:radius="16dp" /> <!-- Adjust "16dp" to change the corner radius -->
+
+</shape>

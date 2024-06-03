@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple">#951193</color>
+    <color name="my_secondary">#951193</color>
+    <color name="my_primary">#951193</color>
+    <color name="bby_blue">#D8EFFA</color>
+    <color name="bby_blue1">#D2F0FD</color>
+    <color name="new_purple">#951193</color>
+    <color name="new_purpleee">#F8E1FD</color>
+    <color name="redd">#F3174E</color>
+    <color name="redd2">#BF113D</color>
+    <color name="redd3">#A53652</color>
+    <color name="colorPassSelected">#CE96DC</color>
+    <color name="washedpurple">#F5EBF6</color>
+    <color name="greenn">#3BDF2A</color>
+    <color name="greenn2">#23A815</color>
+    <color name="bluee">#469FED</color>
+    <color name="orangee">#D64B1F</color>
+    <color name="orangee2">#BC360C</color>
+    <color name="gray">#9F9D9C</color>
+    <color name="gray2">#C6C5C5</color>
+</resources>

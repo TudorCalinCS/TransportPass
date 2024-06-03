@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3cf6fa64-aba9-4605-a26b-b457bd3df310" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ShowTickets.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusTicketQRCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/BusTicketQRCode.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BussLines.kt" beforeDir="false" afterPath="$PROJECT_DIR$/BussLines.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ClientMain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectToServerTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectToServerTask.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIn.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LogIn.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShowRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ShowRoute.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SignUpActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/SignUpActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../res/layout/bus_lines.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../res/layout/bus_lines.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../res/layout/busticket_qrcode_display.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../res/layout/busticket_qrcode_display.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../res/layout/client_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../res/layout/client_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../res/layout/general_ticket.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../res/layout/general_ticket.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../res/layout/incercare_signup.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../res/layout/mytickets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../res/layout/mytickets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../res/layout/show_route.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../res/layout/show_route.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2gbyMho1CzRfqwWgwAhxI2ZeFQG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "Iulian",
+    "last_opened_file_path": "C:/Users/musat/Desktop/FRONTEND_NOU/TransportPass-Frontend/app/src/main/java/com/example/mypublictransportlogin"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3cf6fa64-aba9-4605-a26b-b457bd3df310" name="Changes" comment="" />
+      <created>1715980525334</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715980525334</updated>
+    </task>
+    <servers />
+  </component>
+</project>

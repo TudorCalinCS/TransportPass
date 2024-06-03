@@ -1,0 +1,468 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/washedpurple"
+    tools:context=".SelectBox"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/topHalfImage"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/newlightpurplebackground" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_arrow_back_25"
+            android:contentDescription="Back"/>
+
+
+    <!-- TextView for the title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT YOUR PASS"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/topHalfImage" />
+
+        <RelativeLayout
+            android:id="@+id/selectrelative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_below="@id/titleTextView"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/nopassknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not sure what's your pass type?"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="1dp"/>
+            <TextView
+                android:id="@+id/clickHere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/nopassknown"
+                android:layout_marginStart="8dp"
+                android:text="Click here..."
+                android:textStyle="bold|normal"
+                android:textColor="@color/purple"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/firstpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectrelative"
+        android:layout_marginTop="27dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/white_background"
+        android:elevation="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onBusPassSelected">
+
+        <!-- FrameLayout to contain "URBAN PASS" text and logos -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <!-- Text view for "URBAN PASS" with buspasslogobuy drawableStart -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URBAN PASS"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:drawableStart="@drawable/buspasslogobuy"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical" />
+
+            <!-- Cluj logo on the right -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="end|center_vertical">
+
+                <!-- ImageView with logocluj -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@drawable/logocluj" />
+
+                <!-- TextView for "Cluj-Napoca" -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cluj-Napoca"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/TextPret1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price: 150.00 RON"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="8dp" />
+
+        <!-- Validity -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validity: 30 Days"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstpass"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/white_background"
+        android:elevation="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onBusPassSelected">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <!-- Text view for "URBAN PASS" with buspasslogobuy drawableStart -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="METROPOLITAN PASS"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:drawableStart="@drawable/buspasslogobuy"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical" />
+
+            <!-- Cluj logo on the right -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="end|center_vertical">
+
+                <!-- ImageView with logocluj -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/logocluj" />
+
+                <!-- TextView for "Cluj-Napoca" -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cluj-Napoca"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/TextPret2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price: 165.00 RON"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="8dp" />
+
+        <!-- Validity -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validity: 30 Days"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/forthpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thirdpass"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/white_background"
+        android:elevation="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onBusPassSelected">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <!-- Text view for "URBAN PASS" with buspasslogobuy drawableStart -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INTER-COMMUNAL PASS"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:drawableStart="@drawable/buspasslogobuy"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical" />
+
+            <!-- Cluj logo on the right -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="end|center_vertical">
+
+                <!-- ImageView with logocluj -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/logocluj" />
+
+                <!-- TextView for "Cluj-Napoca" -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cluj-Napoca"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/TextPret4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price: 135.00 RON"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="8dp" />
+
+        <!-- Validity -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validity: 30 Days"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/thirdpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/secondpass"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/white_background"
+        android:elevation="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onBusPassSelected">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <!-- Text view for "URBAN PASS" with buspasslogobuy drawableStart -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INTRA-COMMUNAL PASS"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:drawableStart="@drawable/buspasslogobuy"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical" />
+
+            <!-- Cluj logo on the right -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="end|center_vertical">
+
+                <!-- ImageView with logocluj -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/logocluj" />
+
+                <!-- TextView for "Cluj-Napoca" -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cluj-Napoca"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/TextPret3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price: 135.00 RON"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="8dp" />
+
+        <!-- Validity -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validity: 30 Days"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="8dp" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/forthpass"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <!-- Text view for "Go to checkout" -->
+            <TextView
+                android:id="@+id/checkoutTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go to checkout..."
+                android:textColor="@color/new_purple"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp" /> <!-- Increase marginEnd to create space -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/paymentButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="0dp"
+                android:text="PAYMENT"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/purple"
+                app:cornerRadius="32dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

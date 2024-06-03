@@ -1,0 +1,178 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/washedpurple"
+    tools:context=".BusPassQRCode"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/qrcodeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUS PASS QR CODE"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple"
+        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginTop="70dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_25"
+        android:contentDescription="Back" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:layout_below="@id/qrcodeText"
+        android:layout_marginTop="50dp">
+
+
+        <!-- QR code image -->
+        <ImageView
+            android:id="@+id/qrCodeImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/qr_code_scan"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/readytoscan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/frameLayout"
+        android:layout_marginTop="30dp"
+        android:text="QR code is ready to be scanned!"
+        android:textStyle="bold"
+        android:textColor="@color/purple"
+        android:textSize="18sp" />
+
+    <FrameLayout
+        android:id="@+id/nameRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_below="@+id/readytoscan"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Image View for icon -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/buspassqr"
+                android:layout_gravity="center_vertical"
+                android:paddingEnd="7dp" />
+
+            <!-- Text view for "NAME" -->
+            <TextView
+                android:id="@+id/TextTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PASS TYPE: "
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/nameRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_below="@+id/nameRow1"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Image View for icon -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dateto"
+                android:layout_gravity="center_vertical"
+                android:paddingEnd="8dp" />
+
+            <!-- Text view for "PURCHASE DATE" -->
+            <TextView
+                android:id="@+id/DataIncepere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PURCHASE DATE: "
+                android:textStyle="bold"
+                android:textColor="@color/greenn"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/nameRow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_below="@+id/nameRow2"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Image View for icon -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/expirationdate48"
+                android:layout_gravity="center_vertical"
+                android:paddingEnd="9dp" />
+
+            <!-- Text view for "EXPIRY DATE" -->
+            <TextView
+                android:id="@+id/DataExpirare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EXPIRY DATE: "
+                android:textStyle="bold"
+                android:textColor="@color/redd"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

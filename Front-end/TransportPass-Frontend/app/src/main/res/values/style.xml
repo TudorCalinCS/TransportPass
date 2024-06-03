@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Define your styles here -->
+<!--    <style name="CustomOutlinedBoxAutoCompleteTextView" parent="ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox">-->
+<!--        <item name="android:background">@color/white</item>-->
+<!--    </style>-->
+
+    <style name="Widget.MaterialComponents.AutoCompleteTextView.FilledBox.ExposedDropdownMenu" parent="Widget.MaterialComponents.AutoCompleteTextView.FilledBox">
+        <item name="android:textColor">@color/black</item>  <!-- Set text color -->
+        <item name="android:textColorHint">@color/black</item>  <!-- Set hint text color -->
+        <item name="android:popupBackground">@color/white</item>  <!-- Set popup background color -->
+    </style>
+</resources>

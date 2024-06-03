@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/firstpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/white_background"
+        android:elevation="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        tools:ignore="MissingConstraints">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/TYPE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUSS TYPE TO BE WRITTEN.."
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:drawableStart="@drawable/buspasslogobuy"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="end|center_vertical">
+
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@drawable/logocluj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cluj-Napoca"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/PRICE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="8dp" />
+]
+        <TextView
+            android:id="@+id/VALIDITY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validity: TO BE WRITTEN..."
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="8dp" />
+
+    </LinearLayout>
