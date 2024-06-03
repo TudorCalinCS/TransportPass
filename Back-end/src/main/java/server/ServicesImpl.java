@@ -4,6 +4,7 @@ package server;
 import domain.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 import repository.*;
 import utils.QRCodeGenerator;
 
@@ -125,6 +126,13 @@ public class ServicesImpl implements IServices {
             return true;
         return false;
     }
+
+    public Boolean isStudent(Integer userId) {
+        if (repoClientDB.findOne(userId).getStatut().equals("Student"))
+            return true;
+        return false;
+    }
+
     public Boolean alreadyExists(String email,String cnp){
         if (repoClientDB.findOneByEmailAndCNP(email,cnp) != null)
             return true;
@@ -158,23 +166,23 @@ public class ServicesImpl implements IServices {
             if (responseEntity != null) {
                 String result = EntityUtils.toString(responseEntity);
                 System.out.println("Python Server response: " + result);
-                if (Objects.equals(result, "Student"))
-                    return true;
 
+                // Parse the JSON response
+                JSONObject jsonResponse = new JSONObject(result);
+                String status = jsonResponse.optString("result", "");
+
+                // Check the value of the "result" key
+                if ("Student".equals(status)) {
+                    return true;
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
     }
-    public void updatePassword(Integer id, String newPassword) {
-        User user = repoUserDB.findOne(id);
-        if (user != null) {
-            user.setParola(newPassword);
-            repoUserDB.update(user);
-        } else {
-            throw new RuntimeException("User not found with id: " + id);
-        }
+    public void updatePassword(String username, String newPassword) {
+            repoUserDB.update_password(username,newPassword);
     }
     public void updateAbonament(Abonament abonament) {
         repoAbonamentDB.update(abonament);

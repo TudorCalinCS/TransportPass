@@ -146,6 +146,27 @@ public class RepoUserDB implements IRepoUser {
         }
     }
 
+
+    public void update_password(String username, String newPassword) {
+        logger.traceEntry("updating password for user: {} ", username);
+        Connection con = jdbcUtils.getConnection();
+        try (PreparedStatement prepStatement = con.prepareStatement("update User set parola=? where email=?")) {
+            prepStatement.setString(1, encryptPassword(newPassword));
+            prepStatement.setString(2, username);
+            int result = prepStatement.executeUpdate();
+            if(result == 0){
+                logger.traceExit("could not update password for user: {}", username);
+                throw new RuntimeException("No such user exists or no update necessary.");
+            }
+            else logger.traceExit("updated password for user: {} ", username);
+        } catch (SQLException ex) {
+            System.err.println("Error DB" + ex);
+            logger.error(ex);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public void delete(User entity) {
 

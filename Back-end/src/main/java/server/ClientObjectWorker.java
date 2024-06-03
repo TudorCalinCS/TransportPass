@@ -11,8 +11,10 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +25,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
     private Socket connection;
     private volatile boolean connected;
     static final Logger logger = LogManager.getLogger(ClientObjectWorker.class);
-    private boolean isStudent;
+
     private User currentUser;
 
     public ClientObjectWorker(IServices server, Socket connection) {
@@ -105,23 +107,25 @@ public class ClientObjectWorker implements Runnable, IObserver {
             String parola = request.getString("parola");
             try {
                 this.currentUser = server.login(email, parola, this);
-                if (server.isClient(currentUser.getId())) {
-                    if (isStudent)
+                if (server.isClient(currentUser.getId()))
+                    if(server.isStudent(currentUser.getId()))
                         response.put("type", "StudentResponse");
-                    response.put("type", "ClientResponse");
-                } else response.put("type", "ControlorResponse");
+                    else response.put("type", "ClientResponse");
+                else response.put("type", "ControlorResponse");
 
             } catch (SrvException e) {
-                connected = false;
+//                connected = false;
                 logger.info("EROARE LA LOGIN CLIENT");
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
         } else if (type.equals("UpdatePassword")) {
             logger.info("UpdatePassword request...");
-            String newpass = request.getString("newpass");
+            String username = request.getString("email");
+            String newpass = request.getString("password");
             try {
-                server.updatePassword(currentUser.getId(), newpass);
+                server.updatePassword(username, newpass);
+                logger.info("Password updated successfully");
                 response.put("type", "OkResponse");
                 response.put("message", "Password updated successfully");
             } catch (RuntimeException e) {
@@ -131,7 +135,7 @@ public class ClientObjectWorker implements Runnable, IObserver {
             }
 
 
-        } else if (type.equals("BuyTicket")) {
+    } else if (type.equals("BuyTicket")) {
             logger.info("Buy Ticket request...");
             LocalDateTime dataIncepere = LocalDateTime.now();
             LocalDateTime dataExpirare;
@@ -227,10 +231,11 @@ public class ClientObjectWorker implements Runnable, IObserver {
                 response.put("type", "ErrorResponse");
                 response.put("message", e.getMessage());
             }
-        } else if (type.equals("UpdateAbonament")) {
+        }else if (type.equals("UpdateAbonament")) {
             logger.info("UpdateAbonament request...");
             try {
                 Abonament abonament = server.findAbonamentByClientId(this.currentUser.getId());
+                logger.info("ABONAMENT : " + abonament.getId() + " " + abonament.getDataIncepere() + " " + abonament.getDataExpirare() + " " + abonament.getPret() + " " + abonament.getTip());
                 server.updateAbonament(abonament);
                 response.put("type", "OkResponse");
                 response.put("message", "Abonament updated successfully");
@@ -271,15 +276,28 @@ public class ClientObjectWorker implements Runnable, IObserver {
             response.put("dataExpirare", dataExpirare);
             response.put("tip", tip);
         } else if (type.equals("VerificareStudent")) {
-            byte[] img = (byte[]) request.get("imagine");
-            if (server.checkStudent(img)) {
-                response.put("type", "OkResponse");
-                isStudent = true;
-            } else response.put("type", "ErrorResponse");
+            Object obj = request.get("imagine");
+            byte[] img = null;
 
+            if (obj instanceof byte[]) {
+                img = (byte[]) obj;  // Safely cast because we're sure of the type
+            } else if (obj instanceof String) {
+                // If the object is a string, decode it from Base64
+                String base64String = (String) obj;
+                img = Base64.getDecoder().decode(base64String);
+            } else {
+                // Handle other types or error
+                System.err.println("Unexpected data type for 'imagine': " + obj.getClass().getName());
+            }
+            if (server.checkStudent(img)) {
+                System.out.println("Student verificat");
+                response.put("type", "OkResponse");
+            } else {
+                System.out.println("Student neverificat");
+                response.put("type", "ErrorResponse");
+            }
         }
         return response;
     }
-
 }
 

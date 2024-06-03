@@ -118,13 +118,11 @@ public class RepoAbonamentDB implements IRepoAbonament {
         logger.traceEntry("updating abonament: {} ", entity);
         Connection con = jdbcUtils.getConnection();
         try (PreparedStatement prepStatement = con.prepareStatement("UPDATE Abonament SET dataIncepere=?, dataExpirare=? WHERE id=?")) {
-            LocalDateTime newStartDate = entity.getDataIncepere().plusMonths(1);
             LocalDateTime newEndDate = entity.getDataExpirare().plusMonths(1);
+            LocalDateTime newStartDate = newEndDate.minusMonths(1);
             prepStatement.setString(1, newStartDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
             prepStatement.setString(2, newEndDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            prepStatement.setDouble(3, entity.getPret());
-            prepStatement.setString(4, entity.getTip());
-            prepStatement.setLong(5, entity.getCodClient().getId());
+            prepStatement.setLong(3, entity.getId());
 
             int result = prepStatement.executeUpdate();
             if (result == 0) {

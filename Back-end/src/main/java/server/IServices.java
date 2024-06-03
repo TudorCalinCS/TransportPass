@@ -29,6 +29,8 @@ public interface IServices {
 
     Boolean isClient(Integer userId);
 
+    Boolean isStudent(Integer userId);
+
     byte[] getOrar(String linie);
 
     Boolean alreadyExists(String email, String cnp);
@@ -39,7 +41,7 @@ public interface IServices {
 
     boolean checkStudent(byte[] imageData);
 
-    public void updatePassword(Integer id, String newPassword);
+    public void updatePassword(String username, String newPassword);
     public void updateAbonament(Abonament abonament);
 
 
